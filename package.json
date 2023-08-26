@@ -20,6 +20,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "flowbite-react": "^0.5.0"
+        "flowbite-react": "^0.5.0",
+        "lucide-react": "^0.269.0"
     }
 }
