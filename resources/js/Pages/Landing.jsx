@@ -12,7 +12,7 @@ export default function Landing() {
           content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
         />
       </Head>
-      <div className="h-screen">Landing</div>
+      <div>Landing</div>
     </MainLayout>
   );
 }
