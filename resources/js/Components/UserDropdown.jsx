@@ -1,4 +1,4 @@
-import { Link, router } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { Avatar, Dropdown } from "flowbite-react";
 import {
   ChevronDown,
@@ -38,21 +38,25 @@ export default function UserDropdown({ user }) {
         <span className="block text-sm font-medium">{user.name}</span>
         <span className="block truncate text-sm">{user.email}</span>
       </Dropdown.Header>
-      <Dropdown.Item as="span" icon={User}>
-        <Link href={route("profile.edit")}>My Profile</Link>
-      </Dropdown.Item>
+      <Link href={route("profile.edit")}>
+        <Dropdown.Item as="span" icon={User}>
+          My Profile
+        </Dropdown.Item>
+      </Link>
       <Dropdown.Item as="span" icon={ClipboardList}>
         My Order
       </Dropdown.Item>
-      <Dropdown.Item as="span" icon={Settings}>
-        <Link href={route("profile.edit")}>My Settings</Link>
-      </Dropdown.Item>
+      <Link href={route("profile.edit")}>
+        <Dropdown.Item as="span" icon={Settings}>
+          My Settings
+        </Dropdown.Item>
+      </Link>
       <Dropdown.Divider />
-      <Dropdown.Item as="span" icon={LogOut}>
-        <Link href={route("logout")} method="post" as="button">
+      <Link href={route("logout")} method="post" as="button" className="w-full">
+        <Dropdown.Item as="span" icon={LogOut}>
           Sign out
-        </Link>
-      </Dropdown.Item>
+        </Dropdown.Item>
+      </Link>
     </Dropdown>
   );
 }

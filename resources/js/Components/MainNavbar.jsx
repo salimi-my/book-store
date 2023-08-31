@@ -25,7 +25,7 @@ export default function MainNavbar({ user }) {
         <img
           alt="Book Store Logo"
           className="mr-3 h-6 sm:h-9"
-          src="/bookstore.png"
+          src="/book-store.png"
         />
         <span className="self-center whitespace-nowrap text-xl font-bold dark:text-white">
           Book Store
@@ -35,12 +35,12 @@ export default function MainNavbar({ user }) {
         <Navbar.Toggle barIcon={Search} className="mr-2 rounded-full" />
         {user && <UserDropdown user={user} />}
         {!user && (
-          <Button pill size="sm">
-            <Link href={route("login")} className="flex items-center">
+          <Link href={route("login")} className="flex items-center">
+            <Button pill size="sm">
               Sign in
               <LogIn className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         )}
       </div>
       <Navbar.Collapse>
