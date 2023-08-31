@@ -2,9 +2,9 @@ import { Head } from "@inertiajs/react";
 
 import MainLayout from "@/Layouts/MainLayout";
 
-export default function Landing({ auth }) {
+export default function Landing() {
   return (
-    <MainLayout user={auth.user}>
+    <MainLayout>
       <Head>
         <title>Book Store — Malaysia's Biggest Online Bookstore</title>
         <meta
