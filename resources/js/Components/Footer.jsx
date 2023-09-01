@@ -1,5 +1,11 @@
 import PaymentOption from "@/Components/PaymentOption";
-import { Facebook, Github, Instagram, Twitter } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  ShieldCheck,
+  Twitter,
+} from "lucide-react";
 
 export default function Footer() {
   const d = new Date();
@@ -148,28 +154,28 @@ export default function Footer() {
             <div className="flex mt-3 gap-4 sm:justify-center">
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Facebook />
                 <span className="sr-only">Facebook page</span>
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Instagram />
                 <span className="sr-only">Instagram page</span>
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Twitter />
                 <span className="sr-only">Twitter page</span>
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Github />
                 <span className="sr-only">GitHub account</span>
@@ -177,6 +183,17 @@ export default function Footer() {
             </div>
           </div>
           <PaymentOption />
+          <div className="flex items-center gap-1">
+            <ShieldCheck className="text-cyan-600" size={65} />
+            <div className="flex flex-col">
+              <p className="text-cyan-500 font-bold uppercase leading-none">
+                Safe checkout
+              </p>
+              <p className="text-cyan-700 font-bold uppercase leading-none text-[1.17rem]">
+                guaranteed
+              </p>
+            </div>
+          </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-600 lg:my-8" />
         <p className="font-normal text-gray-600 dark:text-gray-400 text-start">
