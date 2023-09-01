@@ -9,7 +9,7 @@ export default function MainLayout({ children }) {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <MainNavbar user={auth.user} />
-      <main className="grow min-h-[calc(100vh_-_64px_-_397px)]">
+      <main className="grow min-h-[calc(100vh_-_64px_-_534px)]">
         {children}
       </main>
       <Footer />

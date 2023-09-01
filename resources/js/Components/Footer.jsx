@@ -1,3 +1,6 @@
+import PaymentOption from "@/Components/PaymentOption";
+import { Facebook, Github, Instagram, Twitter } from "lucide-react";
+
 export default function Footer() {
   const d = new Date();
   let year = d.getFullYear();
@@ -139,49 +142,54 @@ export default function Footer() {
           </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-600 lg:my-8" />
-        <div className="flex flex-col items-center justify-center">
-          <p className="font-normal text-gray-600 dark:text-gray-400">
-            Book Store © {year}. Created by{" "}
-            <a
-              href="https://www.salimi.my"
-              target="_blank"
-              className="hover:underline"
-            >
-              Salimi
-            </a>
-            . All Rights Reserved
-          </p>
-          <div className="flex mt-4 gap-4 sm:justify-center">
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
-              <i className="fa-brands fa-facebook fa-lg"></i>
-              <span className="sr-only">Facebook page</span>
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
-              <i className="fa-brands fa-instagram fa-lg"></i>
-              <span className="sr-only">Instagram page</span>
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
-              <i className="fa-brands fa-twitter fa-lg"></i>
-              <span className="sr-only">Twitter page</span>
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
-              <i className="fa-brands fa-github fa-lg"></i>
-              <span className="sr-only">GitHub account</span>
-            </a>
+        <div className="grid md:grid-cols-3 gap-6 md:gap-3">
+          <div className="flex flex-col items-start justify-start">
+            <p className="text-gray-600 font-semibold">Connect with us</p>
+            <div className="flex mt-3 gap-4 sm:justify-center">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              >
+                <Facebook />
+                <span className="sr-only">Facebook page</span>
+              </a>
+              <a
+                href="#"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              >
+                <Instagram />
+                <span className="sr-only">Instagram page</span>
+              </a>
+              <a
+                href="#"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              >
+                <Twitter />
+                <span className="sr-only">Twitter page</span>
+              </a>
+              <a
+                href="#"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              >
+                <Github />
+                <span className="sr-only">GitHub account</span>
+              </a>
+            </div>
           </div>
+          <PaymentOption />
         </div>
+        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-600 lg:my-8" />
+        <p className="font-normal text-gray-600 dark:text-gray-400 text-start">
+          Book Store © {year}. Created by{" "}
+          <a
+            href="https://www.salimi.my"
+            target="_blank"
+            className="hover:underline hover:text-cyan-700"
+          >
+            Salimi
+          </a>
+          .
+        </p>
       </div>
     </footer>
   );

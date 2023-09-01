@@ -32,7 +32,7 @@ export default function ResetPassword({ token, email }) {
     <MainLayout>
       <Head title="Reset Password" />
 
-      <div className="min-h-[calc(100vh_-_64px_-_397px)] flex flex-col sm:justify-center items-center py-6 bg-gray-50">
+      <div className="min-h-[calc(100vh_-_64px_-_534px)] flex flex-col sm:justify-center items-center py-6 bg-gray-50">
         <div>
           <Link href="/">
             <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
