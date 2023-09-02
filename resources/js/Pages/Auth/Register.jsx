@@ -1,12 +1,9 @@
 import { useEffect } from "react";
 import { Head, Link, useForm } from "@inertiajs/react";
+import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 
 import MainLayout from "@/Layouts/MainLayout";
-import TextInput from "@/Components/TextInput";
 import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import PrimaryButton from "@/Components/PrimaryButton";
-import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Register() {
   const { data, setData, post, processing, errors, reset } = useForm({
@@ -30,107 +27,121 @@ export default function Register() {
 
   return (
     <MainLayout>
-      <Head title="Register" />
+      <Head title="Sign Up — Book Store" />
 
       <div className="min-h-[calc(100vh_-_64px_-_534px)] flex flex-col sm:justify-center items-center py-6 bg-gray-50">
-        <div>
-          <Link href="/">
-            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-          </Link>
-        </div>
-
-        <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-          <form onSubmit={submit}>
-            <div>
-              <InputLabel htmlFor="name" value="Name" />
-
-              <TextInput
-                id="name"
-                name="name"
-                value={data.name}
-                className="mt-1 block w-full"
-                autoComplete="name"
-                isFocused={true}
-                onChange={(e) => setData("name", e.target.value)}
-                required
-              />
-
-              <InputError message={errors.name} className="mt-2" />
-            </div>
-
-            <div className="mt-4">
-              <InputLabel htmlFor="email" value="Email" />
-
-              <TextInput
-                id="email"
-                type="email"
-                name="email"
-                value={data.email}
-                className="mt-1 block w-full"
-                autoComplete="username"
-                onChange={(e) => setData("email", e.target.value)}
-                required
-              />
-
-              <InputError message={errors.email} className="mt-2" />
-            </div>
-
-            <div className="mt-4">
-              <InputLabel htmlFor="password" value="Password" />
-
-              <TextInput
-                id="password"
-                type="password"
-                name="password"
-                value={data.password}
-                className="mt-1 block w-full"
-                autoComplete="new-password"
-                onChange={(e) => setData("password", e.target.value)}
-                required
-              />
-
-              <InputError message={errors.password} className="mt-2" />
-            </div>
-
-            <div className="mt-4">
-              <InputLabel
-                htmlFor="password_confirmation"
-                value="Confirm Password"
-              />
-
-              <TextInput
-                id="password_confirmation"
-                type="password"
-                name="password_confirmation"
-                value={data.password_confirmation}
-                className="mt-1 block w-full"
-                autoComplete="new-password"
-                onChange={(e) =>
-                  setData("password_confirmation", e.target.value)
-                }
-                required
-              />
-
-              <InputError
-                message={errors.password_confirmation}
-                className="mt-2"
-              />
-            </div>
-
-            <div className="flex items-center justify-end mt-4">
-              <Link
-                href={route("login")}
-                className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Already registered?
-              </Link>
-
-              <PrimaryButton className="ml-4" disabled={processing}>
-                Register
-              </PrimaryButton>
-            </div>
-          </form>
-        </div>
+        <Link
+          href="/"
+          className="flex items-center mb-6 text-2xl font-bold text-cyan-700 dark:text-white"
+        >
+          <img
+            className="w-10 h-10 mr-2"
+            src="/book-store.png"
+            alt="book store logo"
+          />
+          Book Store
+        </Link>
+        <Card className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="p-2 space-y-4 md:space-y-6">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              Create and account
+            </h1>
+            <form className="space-y-4 md:space-y-6" onSubmit={submit}>
+              <div>
+                <Label htmlFor="name" value="Full Name" />
+                <TextInput
+                  id="name"
+                  name="name"
+                  value={data.name}
+                  className="mt-1 block w-full"
+                  placeholder="e.g. John Doe"
+                  onChange={(e) => setData("name", e.target.value)}
+                />
+                <InputError message={errors.name} className="-mb-4" />
+              </div>
+              <div>
+                <Label htmlFor="email" value="Email" />
+                <TextInput
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={data.email}
+                  className="mt-1 block w-full"
+                  placeholder="email@example.com"
+                  onChange={(e) => setData("email", e.target.value)}
+                />
+                <InputError message={errors.email} className="-mb-4" />
+              </div>
+              <div>
+                <Label htmlFor="password" value="Password" />
+                <TextInput
+                  id="password"
+                  type="password"
+                  name="password"
+                  value={data.password}
+                  className="mt-1 block w-full"
+                  placeholder="••••••••"
+                  onChange={(e) => setData("password", e.target.value)}
+                />
+                <InputError message={errors.password} className="-mb-4" />
+              </div>
+              <div>
+                <Label
+                  htmlFor="password_confirmation"
+                  value="Confirm Password"
+                />
+                <TextInput
+                  id="password_confirmation"
+                  type="password"
+                  name="password_confirmation"
+                  value={data.password_confirmation}
+                  className="mt-1 block w-full"
+                  placeholder="••••••••"
+                  onChange={(e) =>
+                    setData("password_confirmation", e.target.value)
+                  }
+                />
+                <InputError
+                  message={errors.password_confirmation}
+                  className="-mb-4"
+                />
+              </div>
+              <div className="flex items-start">
+                <div className="flex items-center h-5">
+                  <Checkbox
+                    id="terms"
+                    name="terms"
+                    className="cursor-pointer"
+                    required=""
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <Label className="cursor-pointer" htmlFor="terms">
+                    I accept the{" "}
+                    <Link
+                      className="font-medium text-cyan-700 hover:underline dark:text-cyan-600"
+                      href="#"
+                    >
+                      Terms and Conditions
+                    </Link>
+                  </Label>
+                </div>
+              </div>
+              <Button fullSized type="submit" disabled={processing}>
+                Create an account
+              </Button>
+              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                Already have an account?{" "}
+                <Link
+                  href={route("login")}
+                  className="font-medium text-cyan-700 hover:underline dark:text-cyan-600"
+                >
+                  Sign in here
+                </Link>
+              </p>
+            </form>
+          </div>
+        </Card>
       </div>
     </MainLayout>
   );
