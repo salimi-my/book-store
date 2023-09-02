@@ -136,13 +136,24 @@ export default function Register() {
                   />
                 </div>
                 <div className="ml-3 text-sm">
-                  <Label className="cursor-pointer" htmlFor="terms">
-                    I accept the{" "}
+                  <Label
+                    className="cursor-pointer font-light text-gray-500"
+                    htmlFor="terms"
+                  >
+                    By signing up, you are creating a Book Store account, and
+                    you agree to Book Store's and{" "}
                     <Link
                       className="font-medium text-cyan-700 hover:underline dark:text-cyan-600"
                       href="#"
                     >
-                      Terms and Conditions
+                      Terms of Use{" "}
+                    </Link>
+                    and{" "}
+                    <Link
+                      className="font-medium text-cyan-700 hover:underline dark:text-cyan-600"
+                      href="#"
+                    >
+                      Privacy Policy.
                     </Link>
                   </Label>
                 </div>

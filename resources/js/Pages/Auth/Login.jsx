@@ -92,7 +92,7 @@ export default function Login({ status, canResetPassword }) {
                   </div>
                   <div className="ml-3 text-sm">
                     <Label
-                      className="cursor-pointer"
+                      className="cursor-pointer font-light text-gray-500"
                       htmlFor="remember"
                       value="Remember me"
                     />
