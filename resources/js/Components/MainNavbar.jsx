@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react";
-import { LogIn, Search } from "lucide-react";
-import { Button, Flowbite } from "flowbite-react";
 import { Navbar, TextInput } from "flowbite-react";
+import { LogIn, Moon, Search, Sun } from "lucide-react";
+import { Button, DarkThemeToggle, Flowbite } from "flowbite-react";
 
 import UserDropdown from "@/Components/UserDropdown";
 
@@ -33,6 +33,11 @@ export default function MainNavbar({ user }) {
       </Navbar.Brand>
       <div className="flex md:order-2">
         <Navbar.Toggle barIcon={Search} className="mr-2 rounded-full" />
+        <DarkThemeToggle
+          iconLight={Sun}
+          iconDark={Moon}
+          className="rounded-full mr-2"
+        />
         {user && <UserDropdown user={user} />}
         {!user && (
           <Link href={route("login")} className="flex items-center">
