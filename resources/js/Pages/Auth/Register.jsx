@@ -9,9 +9,9 @@ export default function Register() {
   const { data, setData, post, processing, errors, reset } = useForm({
     name: "",
     email: "",
+    phone: "",
     password: "",
     password_confirmation: "",
-    accept: false,
     accept: false,
   });
 
@@ -43,7 +43,7 @@ export default function Register() {
           />
           Book Store
         </Link>
-        <Card className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-2xl dark:bg-gray-800 dark:border-gray-700">
+        <Card className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-xl dark:bg-gray-800 dark:border-gray-700">
           <div className="p-2 space-y-4 md:space-y-6">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create and account
@@ -70,11 +70,26 @@ export default function Register() {
                     name="email"
                     value={data.email}
                     className="mt-1 block w-full"
-                    placeholder="email@example.com"
+                    placeholder="e.g. email@example.com"
                     onChange={(e) => setData("email", e.target.value)}
                   />
                   <InputError message={errors.email} className="-mb-4" />
                 </div>
+                <div>
+                  <Label htmlFor="phone" value="Phone number" />
+                  <TextInput
+                    id="phone"
+                    type="text"
+                    name="phone"
+                    value={data.phone}
+                    className="mt-1 block w-full"
+                    placeholder="e.g. 0123456789"
+                    onChange={(e) => setData("phone", e.target.value)}
+                  />
+                  <InputError message={errors.phone} className="-mb-4" />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 md:gap-4">
                 <div>
                   <Label htmlFor="password" value="Password" />
                   <TextInput
@@ -88,27 +103,27 @@ export default function Register() {
                   />
                   <InputError message={errors.password} className="-mb-4" />
                 </div>
-              </div>
-              <div>
-                <Label
-                  htmlFor="password_confirmation"
-                  value="Confirm Password"
-                />
-                <TextInput
-                  id="password_confirmation"
-                  type="password"
-                  name="password_confirmation"
-                  value={data.password_confirmation}
-                  className="mt-1 block w-full"
-                  placeholder="••••••••"
-                  onChange={(e) =>
-                    setData("password_confirmation", e.target.value)
-                  }
-                />
-                <InputError
-                  message={errors.password_confirmation}
-                  className="-mb-4"
-                />
+                <div>
+                  <Label
+                    htmlFor="password_confirmation"
+                    value="Confirm Password"
+                  />
+                  <TextInput
+                    id="password_confirmation"
+                    type="password"
+                    name="password_confirmation"
+                    value={data.password_confirmation}
+                    className="mt-1 block w-full"
+                    placeholder="••••••••"
+                    onChange={(e) =>
+                      setData("password_confirmation", e.target.value)
+                    }
+                  />
+                  <InputError
+                    message={errors.password_confirmation}
+                    className="-mb-4"
+                  />
+                </div>
               </div>
               <div className="flex items-start">
                 <div className="flex items-center h-5">
