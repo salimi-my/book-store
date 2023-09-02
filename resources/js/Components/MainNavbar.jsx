@@ -8,7 +8,7 @@ import UserDropdown from "@/Components/UserDropdown";
 const searchInput = {
   textInput: {
     field: {
-      base: "relative w-full md:w-[500px]",
+      base: "relative w-full md:w-[350px] lg:w-[500px]",
       input: {
         withAddon: {
           off: "rounded-full",
