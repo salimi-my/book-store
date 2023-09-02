@@ -30,7 +30,7 @@ export default function Login({ status, canResetPassword }) {
 
       <div className="min-h-[calc(100vh_-_64px_-_534px)] flex flex-col sm:justify-center items-center py-20 bg-gray-50 dark:bg-gray-900">
         <Link
-          href="#"
+          href="/"
           className="flex items-center mb-6 text-2xl font-bold text-cyan-700 dark:text-white"
         >
           <img
