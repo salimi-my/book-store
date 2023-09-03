@@ -1,9 +1,10 @@
 import { Link } from "@inertiajs/react";
+import { LogIn, Search } from "lucide-react";
 import { Navbar, TextInput } from "flowbite-react";
-import { LogIn, Moon, Search, Sun } from "lucide-react";
-import { Button, DarkThemeToggle, Flowbite } from "flowbite-react";
+import { Button, Flowbite } from "flowbite-react";
 
 import UserDropdown from "@/Components/UserDropdown";
+import DarkModeToggle from "@/Components/DarkModeToggle";
 
 const searchInput = {
   textInput: {
@@ -32,11 +33,10 @@ export default function MainNavbar({ user }) {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Navbar.Toggle barIcon={Search} className="mr-2 rounded-full" />
-        <DarkThemeToggle
-          iconLight={Sun}
-          iconDark={Moon}
-          className="rounded-full mr-2"
+        <DarkModeToggle />
+        <Navbar.Toggle
+          barIcon={Search}
+          className="mr-1 rounded-full w-11 justify-center"
         />
         {user && <UserDropdown user={user} />}
         {!user && (

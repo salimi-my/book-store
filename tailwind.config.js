@@ -1,4 +1,3 @@
-import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
 import flowbite from "flowbite/plugin";
 
@@ -12,4 +11,5 @@ export default {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   plugins: [forms, flowbite],
+  darkMode: "class",
 };
