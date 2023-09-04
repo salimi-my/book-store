@@ -1,6 +1,8 @@
+import { Card } from "flowbite-react";
 import { Head } from "@inertiajs/react";
 
 import MainLayout from "@/Layouts/MainLayout";
+import ProfileLayout from "@/Layouts/ProfileLayout";
 import DeleteUserForm from "@/Pages/Profile/Partials/DeleteUserForm";
 import UpdatePasswordForm from "@/Pages/Profile/Partials/UpdatePasswordForm";
 import UpdateProfileInformationForm from "@/Pages/Profile/Partials/UpdateProfileInformationForm";
@@ -8,27 +10,27 @@ import UpdateProfileInformationForm from "@/Pages/Profile/Partials/UpdateProfile
 export default function Edit({ mustVerifyEmail, status }) {
   return (
     <MainLayout>
-      <Head title="Profile" />
+      <Head title="My Profile — Book Store" />
 
-      <div className="py-12">
-        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-          <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+      <ProfileLayout>
+        <div className="flex flex-col space-y-6">
+          <Card className="w-full bg-white rounded-lg shadow dark:border md:mt-0 dark:bg-gray-800 dark:border-gray-700">
             <UpdateProfileInformationForm
               mustVerifyEmail={mustVerifyEmail}
               status={status}
-              className="max-w-xl"
+              className="w-full p-2"
             />
-          </div>
+          </Card>
 
-          <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-            <UpdatePasswordForm className="max-w-xl" />
-          </div>
+          <Card className="w-full bg-white rounded-lg shadow dark:border md:mt-0 dark:bg-gray-800 dark:border-gray-700">
+            <UpdatePasswordForm className="w-full p-2" />
+          </Card>
 
-          <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-            <DeleteUserForm className="max-w-xl" />
-          </div>
+          <Card className="w-full bg-white rounded-lg shadow dark:border md:mt-0 dark:bg-gray-800 dark:border-gray-700">
+            <DeleteUserForm className="w-full p-2" />
+          </Card>
         </div>
-      </div>
+      </ProfileLayout>
     </MainLayout>
   );
 }
