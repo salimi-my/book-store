@@ -2,6 +2,7 @@ import { Link, usePage } from "@inertiajs/react";
 
 export default function ProfileCard() {
   const { auth } = usePage().props;
+  const pathname = window.location.pathname;
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -22,7 +23,7 @@ export default function ProfileCard() {
           <Link
             href={route("profile.edit")}
             as="button"
-            className="w-full mb-2 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-full text-sm px-5 py-2 text-center dark:border-cyan-500 dark:text-cyan-500 dark:hover:text-white dark:hover:bg-cyan-500 dark:focus:ring-cyan-800"
+            className={`${pathname === '/profile' ? 'bg-cyan-700 text-white dark:text-white':''} w-full mb-2 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-full text-sm px-5 py-2 text-center dark:border-cyan-500 dark:text-cyan-500 dark:hover:text-white dark:hover:bg-cyan-500 dark:focus:ring-cyan-800`}
           >
             Profile
           </Link>
