@@ -1,14 +1,17 @@
+import { useRef, useState } from "react";
+import { useForm } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
+import { Camera, CheckCircle } from "lucide-react";
 import { Button, Label, TextInput } from "flowbite-react";
 
 import InputError from "@/Components/InputError";
-import PrimaryButton from "@/Components/PrimaryButton";
-import { useForm } from "@inertiajs/react";
-import { CheckCircle } from "lucide-react";
 
 export default function UpdateProfileInformation({ user, className = "" }) {
-  const { data, setData, patch, errors, processing, recentlySuccessful } =
+  const filePicker = useRef(null);
+  const [showAvatar, setShowAvatar] = useState(null);
+  const { post, reset, setData, data, errors, processing, recentlySuccessful } =
     useForm({
+      avatar: null,
       name: user.name,
       email: user.email,
       phone: user.phone,
@@ -17,7 +20,28 @@ export default function UpdateProfileInformation({ user, className = "" }) {
   const submit = (e) => {
     e.preventDefault();
 
-    patch(route("profile.update"));
+    post(route("profile.update"), {
+      onSuccess: () => {
+        setShowAvatar(null);
+        reset("avatar");
+      },
+    });
+  };
+
+  const addFile = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.onload = (readerEvent) => {
+      setData("avatar", e.target.files[0]);
+      setShowAvatar(readerEvent.target.result);
+    };
+  };
+
+  const resetAvatar = () => {
+    setShowAvatar(null);
+    reset("avatar");
   };
 
   return (
@@ -32,7 +56,11 @@ export default function UpdateProfileInformation({ user, className = "" }) {
         </p>
       </header>
 
-      <form onSubmit={submit} className="mt-6 space-y-6">
+      <form
+        onSubmit={submit}
+        className="mt-6 space-y-6"
+        encType="multipart/form-data"
+      >
         <Transition
           show={recentlySuccessful}
           enter="transition ease-in-out"
@@ -46,6 +74,52 @@ export default function UpdateProfileInformation({ user, className = "" }) {
             Profile successfully updated.
           </p>
         </Transition>
+
+        <div className="flex flex-col items-center">
+          <div
+            onClick={() => filePicker.current.click()}
+            className="relative group"
+          >
+            {!showAvatar && (
+              <img
+                className="w-24 h-24 rounded-full shadow-lg object-cover group-hover:brightness-50 cursor-pointer"
+                src={user.avatar ? user.src : "/avatar.svg"}
+                alt="user photo"
+              />
+            )}
+            {showAvatar && (
+              <img
+                className="w-24 h-24 rounded-full shadow-lg object-cover group-hover:brightness-50 cursor-pointer"
+                src={showAvatar}
+                alt="user photo"
+              />
+            )}
+            <div className="absolute top-9 left-5 hidden group-hover:flex justify-center items-center cursor-pointer">
+              <p className="font-medium text-white">Change</p>
+            </div>
+            <div className="absolute right-1 bottom-1 w-5 h-5 p-1 bg-gray-300 rounded-full flex justify-center items-center ring-2 ring-white cursor-pointer">
+              <Camera className="text-gray-600" />
+            </div>
+          </div>
+          {showAvatar && (
+            <button
+              onClick={resetAvatar}
+              type="button"
+              className="mt-3 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-700 focus:ring-2 focus:outline-none focus:ring-cyan-300 font-medium rounded-full text-sm px-5 py-1 text-center dark:border-cyan-500 dark:text-cyan-500 dark:hover:text-white dark:hover:bg-cyan-500 dark:focus:ring-cyan-800"
+            >
+              Remove
+            </button>
+          )}
+          <input
+            ref={filePicker}
+            onChange={addFile}
+            type="file"
+            name="avatar"
+            hidden
+          />
+          <InputError className="-mb-4" message={errors.avatar} />
+        </div>
+
         <div>
           <Label htmlFor="name" value="Full Name" />
           <TextInput

@@ -18,7 +18,15 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'phone' => ['max:15']
+            'phone' => ['max:15'],
+            'avatar' => ['sometimes', 'mimes:jpg,png,jpeg,webp', 'max:5000']
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'avatar.mimes' => 'The file should be in one of the formats: jpg, png, jpeg, webp',
         ];
     }
 }
