@@ -21,7 +21,7 @@ export default function UserDropdown({ user }) {
               rounded
               size="sm"
               alt="User settings"
-              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              img={`${user.avatar ? user.src : "/avatar.svg"}`}
               className="space-x-0 w-8 mr-2"
             />
           </div>
