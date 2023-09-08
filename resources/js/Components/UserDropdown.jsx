@@ -1,12 +1,6 @@
 import { Link } from "@inertiajs/react";
 import { Avatar, Dropdown } from "flowbite-react";
-import {
-  ChevronDown,
-  ClipboardList,
-  LogOut,
-  Settings,
-  User,
-} from "lucide-react";
+import { User, LogOut, MapPin, ChevronDown, ClipboardList } from "lucide-react";
 
 export default function UserDropdown({ user }) {
   return (
@@ -44,11 +38,11 @@ export default function UserDropdown({ user }) {
         </Dropdown.Item>
       </Link>
       <Dropdown.Item as="span" icon={ClipboardList}>
-        My Order
+        My Orders
       </Dropdown.Item>
       <Link href={route("profile.edit")}>
-        <Dropdown.Item as="span" icon={Settings}>
-          My Settings
+        <Dropdown.Item as="span" icon={MapPin}>
+          My Addresses
         </Dropdown.Item>
       </Link>
       <Dropdown.Divider />
