@@ -4,7 +4,6 @@ export default function PaymentOption() {
       <p className="text-gray-600 font-semibold pb-3">Supported payments</p>
       <div className="flex justify-start flex-wrap gap-1 max-w-[240px]">
         <svg
-          className="payment-icon"
           viewBox="0 0 38 24"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
@@ -27,7 +26,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           viewBox="0 0 38 24"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
@@ -52,7 +50,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           viewBox="0 0 38 24"
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -75,7 +72,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           viewBox="0 0 38 24"
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -103,7 +99,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           x="0"
@@ -138,7 +133,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           viewBox="0 0 38 24"
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -181,7 +175,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           viewBox="0 0 38 24"
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -200,7 +193,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           width="38"
           height="24"
           viewBox="0 0 38 24"
@@ -228,7 +220,6 @@ export default function PaymentOption() {
           ></path>
         </svg>
         <svg
-          className="payment-icon"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
           viewBox="0 0 38 24"
@@ -264,7 +255,6 @@ export default function PaymentOption() {
           </defs>
         </svg>
         <svg
-          className="payment-icon"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
           viewBox="0 0 38 24"
