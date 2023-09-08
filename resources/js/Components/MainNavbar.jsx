@@ -1,7 +1,6 @@
 import { Link } from "@inertiajs/react";
 import { LogIn, Search } from "lucide-react";
-import { Navbar, TextInput } from "flowbite-react";
-import { Button, Flowbite } from "flowbite-react";
+import { Navbar, TextInput, Button, Flowbite } from "flowbite-react";
 
 import UserDropdown from "@/Components/UserDropdown";
 import DarkModeToggle from "@/Components/DarkModeToggle";
