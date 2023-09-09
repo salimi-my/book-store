@@ -32,7 +32,7 @@ export default function ProfileCard() {
             Profile
           </Link>
           <Link
-            href="#"
+            href={route("address.index")}
             as="button"
             className={`${
               pathname === "/address"
