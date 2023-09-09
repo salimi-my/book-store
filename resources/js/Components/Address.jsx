@@ -1,17 +1,17 @@
-import AddressDefault from "@/Pages/Address/Partials/AddressDefault";
+import { Trash } from "lucide-react";
 import { Button } from "flowbite-react";
-import { PenSquare, RefreshCw, Trash } from "lucide-react";
 
-export default function Address({ address, first }) {
+import AddressForm from "@/Pages/Address/Partials/AddressForm";
+import AddressDefault from "@/Pages/Address/Partials/AddressDefault";
+
+export default function Address({ address, countries, first }) {
   return (
     <div className="flex flex-col">
       {!first && <hr className="my-6" />}
       <div className="flex flex-col md:flex-row justify-between space-y-2 md:space-y-0">
         <div className="flex space-x-1 md:order-2">
           <AddressDefault address={address} />
-          <Button className="px-0" color="light" size="xs">
-            <PenSquare className="w-4 h-4" />
-          </Button>
+          <AddressForm address={address} countries={countries} />
           <Button className="px-0" color="failure" size="xs">
             <Trash className="w-4 h-4" />
           </Button>

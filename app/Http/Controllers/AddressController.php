@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,9 +73,27 @@ class AddressController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Address $address)
     {
-        //
+        $address->update(
+            $request->validate(
+                [
+                    'name' => 'required|max:255',
+                    'phone' => 'required|max:15',
+                    'address' => 'required|max:255',
+                    'city' => 'required|max:255',
+                    'postal_code' => 'required|numeric',
+                    'state' => 'required|max:255',
+                    'country' => 'required'
+                ],
+                [
+                    'postal_code.required' => 'The postal code field is required',
+                    'postal_code.numeric' => 'The postal code field is must be a number',
+                ]
+            )
+        );
+
+        return redirect()->route('address.index')->with('message', 'Address successfully updated!');
     }
 
     /**

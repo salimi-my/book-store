@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Plus } from "lucide-react";
 import { useForm } from "@inertiajs/react";
+import { PenSquare, Plus } from "lucide-react";
 import { Button, Label, Select, TextInput } from "flowbite-react";
 
 import Modal from "@/Components/Modal";
@@ -9,24 +9,32 @@ import InputError from "@/Components/InputError";
 export default function AddressForm({ address, countries }) {
   const [openModal, setOpenModal] = useState(false);
 
-  const { data, setData, post, processing, errors, reset } = useForm({
-    name: "",
-    phone: "",
-    address: "",
-    city: "",
-    postal_code: "",
-    state: "",
-    country: "",
+  const { data, setData, post, put, processing, errors, reset } = useForm({
+    name: address ? address.name : "",
+    phone: address ? address.phone : "",
+    address: address ? address.address : "",
+    city: address ? address.city : "",
+    postal_code: address ? address.postal_code : "",
+    state: address ? address.state : "",
+    country: address ? address.country : "",
   });
 
   const submit = (e) => {
     e.preventDefault();
 
-    post(route("address.store"), {
-      preserveScroll: true,
-      onSuccess: () => closeModal(),
-      onFinish: () => reset(),
-    });
+    if (address) {
+      put(route("address.update", address.id), {
+        preserveScroll: true,
+        onSuccess: () => closeModal(),
+        onFinish: () => reset(),
+      });
+    } else {
+      post(route("address.store"), {
+        preserveScroll: true,
+        onSuccess: () => closeModal(),
+        onFinish: () => reset(),
+      });
+    }
   };
 
   const closeModal = () => {
@@ -36,21 +44,37 @@ export default function AddressForm({ address, countries }) {
 
   return (
     <>
-      <Button type="button" onClick={() => setOpenModal(true)}>
-        <span className="flex items-center">
-          <Plus className="mr-1" />
-          Add New Address
-        </span>
-      </Button>
+      {!address && (
+        <Button type="button" onClick={() => setOpenModal(true)}>
+          <span className="flex items-center">
+            <Plus className="mr-1" />
+            Add New Address
+          </span>
+        </Button>
+      )}
+
+      {address && (
+        <Button
+          type="button"
+          onClick={() => setOpenModal(true)}
+          className="px-0"
+          color="light"
+          size="xs"
+        >
+          <PenSquare className="w-4 h-4" />
+        </Button>
+      )}
 
       <Modal show={openModal} onClose={closeModal}>
         <form onSubmit={submit} className="p-6 space-y-4">
           <header>
             <h2 className="text-lg font-medium text-gray-900">
-              Add New Address
+              {address ? "Edit Address" : "Add New Address"}
             </h2>
             <p className="mt-1 text-sm text-gray-600">
-              Add new address for your account.
+              {address
+                ? "Update current address."
+                : "Add new address for your account."}
             </p>
           </header>
 

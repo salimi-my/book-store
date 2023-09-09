@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { Alert, Card } from "flowbite-react";
 import { Head, usePage } from "@inertiajs/react";
 
+import Address from "@/Components/Address";
 import MainLayout from "@/Layouts/MainLayout";
 import ProfileLayout from "@/Layouts/ProfileLayout";
 import AddressForm from "@/Pages/Address/Partials/AddressForm";
-import Address from "@/Components/Address";
 
 export default function Index({ addresses, countries }) {
   const { flash } = usePage().props;
@@ -55,6 +55,7 @@ export default function Index({ addresses, countries }) {
                 <Address
                   key={address.id}
                   address={address}
+                  countries={countries}
                   first={index === 0}
                 />
               ))}
