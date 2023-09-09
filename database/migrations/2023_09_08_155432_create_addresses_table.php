@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->foreignIdFor(User::class, 'user_id')->constrained('users');
 
-            $table->enum('default', ['yes', 'no']);
+            $table->enum('default', ['yes', 'no'])->default('no');
 
             $table->string('name');
             $table->string('phone', 50);
