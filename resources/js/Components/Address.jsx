@@ -1,7 +1,5 @@
-import { Trash } from "lucide-react";
-import { Button } from "flowbite-react";
-
 import AddressForm from "@/Pages/Address/Partials/AddressForm";
+import AddressDelete from "@/Pages/Address/Partials/AddressDelete";
 import AddressDefault from "@/Pages/Address/Partials/AddressDefault";
 
 export default function Address({ address, countries, first }) {
@@ -12,9 +10,7 @@ export default function Address({ address, countries, first }) {
         <div className="flex space-x-1 md:order-2">
           <AddressDefault address={address} />
           <AddressForm address={address} countries={countries} />
-          <Button className="px-0" color="failure" size="xs">
-            <Trash className="w-4 h-4" />
-          </Button>
+          <AddressDelete address={address} />
         </div>
         <div className="flex items-center">
           <p className="pr-2 border-r-2 font-semibold dark:text-white">
