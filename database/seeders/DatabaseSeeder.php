@@ -25,20 +25,29 @@ class DatabaseSeeder extends Seeder
             'email' => 'hilminarawi@example.com',
         ]);
 
-        Address::factory(2)->create([
+        Address::factory(1)->create([
+            'user_id' => 1,
+            'default' => 'yes'
+        ]);
+
+        Address::factory(1)->create([
             'user_id' => 1,
         ]);
 
-        Address::factory(2)->create([
+        Address::factory(1)->create([
+            'user_id' => 2,
+            'default' => 'yes'
+        ]);
+
+        Address::factory(1)->create([
             'user_id' => 2,
         ]);
 
         $this->call([
-            CountrySeeder::class
-        ]);
-
-        $this->call([
-            BookSeeder::class
+            CountrySeeder::class,
+            BookSeeder::class,
+            CategorySeeder::class,
+            CategoryBookSeeder::class
         ]);
     }
 }
