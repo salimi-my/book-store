@@ -45,9 +45,9 @@ export default function AddressForm({ address, countries }) {
   return (
     <>
       {!address && (
-        <Button type="button" onClick={() => setOpenModal(true)}>
+        <Button type="button" size="xs" onClick={() => setOpenModal(true)}>
           <span className="flex items-center">
-            <Plus className="mr-1" />
+            <Plus className="mr-1 w-5 h-5" />
             Add New Address
           </span>
         </Button>
