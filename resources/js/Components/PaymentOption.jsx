@@ -1,7 +1,9 @@
 export default function PaymentOption() {
   return (
     <div className="flex flex-col items-start">
-      <p className="text-gray-600 font-semibold pb-3">Supported payments</p>
+      <p className="text-gray-600 dark:text-gray-400 font-semibold pb-3">
+        Supported payments
+      </p>
       <div className="flex justify-start flex-wrap gap-1 max-w-[240px]">
         <svg
           viewBox="0 0 38 24"

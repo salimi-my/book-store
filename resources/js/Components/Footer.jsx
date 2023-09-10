@@ -150,31 +150,41 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-600 lg:my-8" />
         <div className="grid md:grid-cols-3 gap-6 md:gap-3">
           <div className="flex flex-col items-start justify-start">
-            <p className="text-gray-600 font-semibold">Connect with us</p>
+            <p className="text-gray-600 dark:text-gray-400 font-semibold">
+              Connect with us
+            </p>
             <div className="flex mt-3 gap-4 sm:justify-center">
               <a
-                href="#"
+                href="https://www.facebook.com/mysalimi/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Facebook />
                 <span className="sr-only">Facebook page</span>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/salimi.my/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Instagram />
                 <span className="sr-only">Instagram page</span>
               </a>
               <a
-                href="#"
+                href="https://twitter.com/mysalimi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Twitter />
                 <span className="sr-only">Twitter page</span>
               </a>
               <a
-                href="#"
+                href="https://github.com/salimi-my"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 hover:text-cyan-900 dark:hover:text-white"
               >
                 <Github />
@@ -201,7 +211,8 @@ export default function Footer() {
           <a
             href="https://www.salimi.my"
             target="_blank"
-            className="hover:underline hover:text-cyan-700"
+            rel="noopener noreferrer"
+            className="hover:underline hover:text-cyan-700 dark:hover:text-cyan-500"
           >
             Salimi
           </a>
