@@ -41,10 +41,10 @@ export default function Index({ addresses, countries }) {
           <section className="w-full p-2">
             <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
               <header>
-                <h2 className="text-lg font-medium text-gray-900">
+                <h2 className="text-lg font-medium text-gray-900 dark:text-white">
                   My Addresses
                 </h2>
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                   These are your account's addresses details.
                 </p>
               </header>

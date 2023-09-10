@@ -39,11 +39,11 @@ export default function AddressDelete({ address }) {
 
       <Modal show={openModal} onClose={closeModal}>
         <form onSubmit={deleteAddress} className="p-6">
-          <h2 className="text-lg font-medium text-gray-900">
+          <h2 className="text-lg font-medium text-gray-900 dark:text-white">
             Are you sure you want to delete this address?
           </h2>
 
-          <p className="mt-1 text-sm text-gray-600">
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
             Once address is deleted, the data will be permanently deleted.
           </p>
 

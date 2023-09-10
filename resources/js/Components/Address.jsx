@@ -16,17 +16,23 @@ export default function Address({ address, countries, first }) {
           <p className="pr-2 border-r-2 font-semibold dark:text-white">
             {address.name}
           </p>
-          <p className="pl-2 text-gray-500">{address.phone}</p>
+          <p className="pl-2 text-gray-500 dark:text-gray-400">
+            {address.phone}
+          </p>
         </div>
       </div>
-      <p className="text-gray-500 text-sm">{address.address},</p>
-      <p className="text-gray-500 text-sm">
+      <p className="text-gray-500 dark:text-gray-400 text-sm">
+        {address.address},
+      </p>
+      <p className="text-gray-500 dark:text-gray-400 text-sm">
         {address.postal_code} {address.city}, {address.state},
       </p>
-      <p className="text-gray-500 text-sm">{address.country}</p>
+      <p className="text-gray-500 dark:text-gray-400 text-sm">
+        {address.country}
+      </p>
       {address.default === "yes" && (
         <div className="inline-flex mt-2">
-          <p className="text-sm border text-cyan-700 border-cyan-700 px-1 rounded-md">
+          <p className="text-sm border text-cyan-700 dark:text-cyan-400 border-cyan-700 dark:border-cyan-400 px-1 rounded-md">
             Default
           </p>
         </div>

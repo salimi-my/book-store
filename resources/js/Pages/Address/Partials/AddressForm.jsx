@@ -70,10 +70,10 @@ export default function AddressForm({ address, countries }) {
       <Modal show={openModal} onClose={closeModal}>
         <form onSubmit={submit} className="p-6 space-y-4">
           <header>
-            <h2 className="text-lg font-medium text-gray-900">
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white">
               {address ? "Edit Address" : "Add New Address"}
             </h2>
-            <p className="mt-1 text-sm text-gray-600">
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
               {address
                 ? "Update current address."
                 : "Add new address for your account."}
