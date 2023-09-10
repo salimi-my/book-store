@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import { PenSquare, Plus } from "lucide-react";
-import { Button, Label, Select, TextInput } from "flowbite-react";
+import { Button, Label, Select, TextInput, Tooltip } from "flowbite-react";
 
 import Modal from "@/Components/Modal";
 import InputError from "@/Components/InputError";
@@ -54,15 +54,17 @@ export default function AddressForm({ address, countries }) {
       )}
 
       {address && (
-        <Button
-          type="button"
-          onClick={() => setOpenModal(true)}
-          className="px-0"
-          color="light"
-          size="xs"
-        >
-          <PenSquare className="w-4 h-4" />
-        </Button>
+        <Tooltip content="Edit address">
+          <Button
+            type="button"
+            onClick={() => setOpenModal(true)}
+            className="px-0"
+            color="light"
+            size="xs"
+          >
+            <PenSquare className="w-4 h-4" />
+          </Button>
+        </Tooltip>
       )}
 
       <Modal show={openModal} onClose={closeModal}>

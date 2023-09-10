@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Trash } from "lucide-react";
-import { Button } from "flowbite-react";
 import { useForm } from "@inertiajs/react";
+import { Button, Tooltip } from "flowbite-react";
 
 import Modal from "@/Components/Modal";
 
@@ -26,14 +26,16 @@ export default function AddressDelete({ address }) {
 
   return (
     <>
-      <Button
-        onClick={() => setOpenModal(true)}
-        className="px-0"
-        color="failure"
-        size="xs"
-      >
-        <Trash className="w-4 h-4" />
-      </Button>
+      <Tooltip content="Delete address">
+        <Button
+          onClick={() => setOpenModal(true)}
+          className="px-0"
+          color="failure"
+          size="xs"
+        >
+          <Trash className="w-4 h-4" />
+        </Button>
+      </Tooltip>
 
       <Modal show={openModal} onClose={closeModal}>
         <form onSubmit={deleteAddress} className="p-6">
