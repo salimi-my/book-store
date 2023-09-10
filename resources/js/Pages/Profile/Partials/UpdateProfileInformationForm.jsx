@@ -82,14 +82,14 @@ export default function UpdateProfileInformation({ user, className = "" }) {
           >
             {!showAvatar && (
               <img
-                className="w-24 h-24 rounded-full shadow-lg object-cover group-hover:brightness-50 cursor-pointer"
+                className="w-24 h-24 rounded-full shadow-md object-cover group-hover:brightness-50 cursor-pointer"
                 src={user.avatar ? user.src : "/avatar.svg"}
                 alt="user photo"
               />
             )}
             {showAvatar && (
               <img
-                className="w-24 h-24 rounded-full shadow-lg object-cover group-hover:brightness-50 cursor-pointer"
+                className="w-24 h-24 rounded-full shadow-md object-cover group-hover:brightness-50 cursor-pointer"
                 src={showAvatar}
                 alt="user photo"
               />
