@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Book;
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,14 +22,18 @@ class CategoryBookSeeder extends Seeder
         foreach ($books as $book) {
             DB::table('category_book')->insert([
                 'category_id' => rand(1, 16),
-                'book_id' => $book->id
+                'book_id' => $book->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
         }
 
         foreach ($categories as $category) {
             DB::table('category_book')->insert([
                 'category_id' => $category->id,
-                'book_id' => rand(1, 24)
+                'book_id' => rand(1, 24),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
         }
     }
