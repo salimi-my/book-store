@@ -10,10 +10,10 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         return inertia('Book/Index', [
-            'books' => Book::latest()->paginate(12)
+            'books' => Book::latest()->paginate(12)->withQueryString()
         ]);
     }
 

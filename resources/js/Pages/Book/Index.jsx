@@ -1,4 +1,5 @@
 import BookCard from "@/Components/BookCard";
+import Pagination from "@/Components/Pagination";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head } from "@inertiajs/react";
 
@@ -23,6 +24,11 @@ export default function Index({ books }) {
                 <BookCard key={book.id} book={book} />
               ))}
             </div>
+            {books.data.length > 0 && (
+              <div className="w-full flex justify-center mt-10">
+                <Pagination links={books.links} />
+              </div>
+            )}
           </div>
         </div>
       </div>
