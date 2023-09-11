@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AddressDefaultController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -20,6 +21,8 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Landing', []);
 });
+
+Route::resource('book', BookController::class)->only(['index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
