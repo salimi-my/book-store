@@ -12,8 +12,13 @@ class BookController extends Controller
      */
     public function index(Request $request)
     {
+        $filters = $request->only([
+            'type'
+        ]);
+
         return inertia('Book/Index', [
-            'books' => Book::latest()->paginate(12)->withQueryString()
+            'filters' => $filters,
+            'books' => Book::latest()->filter($filters)->paginate(12)->withQueryString()
         ]);
     }
 

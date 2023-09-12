@@ -1,9 +1,11 @@
-import BookCard from "@/Components/BookCard";
-import Pagination from "@/Components/Pagination";
-import MainLayout from "@/Layouts/MainLayout";
 import { Head } from "@inertiajs/react";
 
-export default function Index({ books }) {
+import BookCard from "@/Components/BookCard";
+import MainLayout from "@/Layouts/MainLayout";
+import Pagination from "@/Components/Pagination";
+import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
+
+export default function Index({ filters, books }) {
   return (
     <MainLayout>
       <Head>
@@ -15,8 +17,8 @@ export default function Index({ books }) {
       </Head>
       <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
         <div className="flex">
-          <div className="hidden md:flex md:flex-col w-[250px] shrink-0 px-4 border-r border-gray-200 dark:border-gray-700">
-            Filter
+          <div className="hidden md:flex md:flex-col w-[260px] shrink-0 px-4 border-r border-gray-200 dark:border-gray-700">
+            <TypeFilter filters={filters} />
           </div>
           <div className="grow px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-y-10">
