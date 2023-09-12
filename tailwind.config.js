@@ -1,6 +1,8 @@
 import forms from "@tailwindcss/forms";
 import flowbite from "flowbite/plugin";
 
+const { blackA, mauve, violet } = require("@radix-ui/colors");
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -10,6 +12,15 @@ export default {
     "./resources/js/**/*.jsx",
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
+  theme: {
+    extend: {
+      colors: {
+        ...blackA,
+        ...mauve,
+        ...violet,
+      },
+    },
+  },
   plugins: [forms, flowbite],
   darkMode: "class",
 };

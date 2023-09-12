@@ -20,6 +20,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@radix-ui/colors": "^2.1.0",
+        "@radix-ui/react-scroll-area": "^1.0.4",
         "flowbite-react": "^0.5.0",
         "lucide-react": "^0.269.0"
     }
