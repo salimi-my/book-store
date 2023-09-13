@@ -6,9 +6,10 @@ import BookCard from "@/Components/BookCard";
 import MainLayout from "@/Layouts/MainLayout";
 import Pagination from "@/Components/Pagination";
 import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
+import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
 
-export default function Index({ filters, categories, books }) {
+export default function Index({ filters, categories, authors, books }) {
   const [bookFilter, setBookFilter] = useState({
     filters,
   });
@@ -76,6 +77,11 @@ export default function Index({ filters, categories, books }) {
               handleCheckbox={handleCheckbox}
               bookFilter={bookFilter}
               categories={categories}
+            />
+            <AuthorFilter
+              handleCheckbox={handleCheckbox}
+              bookFilter={bookFilter}
+              authors={authors}
             />
           </div>
           <div className="grow px-4">

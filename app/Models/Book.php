@@ -28,6 +28,9 @@ class Book extends Model
             fn ($query, $value) => $query->whereHas('categories', function ($query)  use ($value) {
                 $query->whereIn('name', explode(',', $value));
             })
+        )->when(
+            $filters['author'] ?? false,
+            fn ($query, $value) => $query->whereIn('author', explode(',', $value))
         );
     }
 }
