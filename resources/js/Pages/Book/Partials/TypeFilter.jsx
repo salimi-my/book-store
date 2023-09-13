@@ -1,6 +1,7 @@
+import { debounce } from "lodash";
 import { router } from "@inertiajs/react";
-import { useEffect, useState } from "react";
 import { Checkbox, Label } from "flowbite-react";
+import { useCallback, useEffect, useState } from "react";
 
 import FilterLayout from "@/Layouts/FilterLayout";
 
@@ -28,11 +29,20 @@ export default function TypeFilter({ filters }) {
     });
   };
 
+  const submitFilter = useCallback(
+    debounce(
+      (bookFilter) =>
+        router.get(route("book.index"), bookFilter, {
+          preserveState: true,
+          preserveScroll: true,
+        }),
+      500
+    ),
+    []
+  );
+
   useEffect(() => {
-    router.get(route("book.index"), bookFilter, {
-      preserveState: true,
-      preserveScroll: true,
-    });
+    submitFilter(bookFilter);
   }, [bookFilter]);
 
   return (
