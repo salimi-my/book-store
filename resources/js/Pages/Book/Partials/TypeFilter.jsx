@@ -6,7 +6,7 @@ import FilterLayout from "@/Layouts/FilterLayout";
 
 export default function TypeFilter({ filters }) {
   const [bookFilter, setBookFilter] = useState({
-    type: filters.type ?? "",
+    filters,
   });
 
   const handleCheckbox = (e) => {
@@ -42,9 +42,16 @@ export default function TypeFilter({ filters }) {
           <Checkbox
             id="fiction"
             value="fiction"
+            className="cursor-pointer"
             onChange={(e) => handleCheckbox(e)}
+            defaultChecked={
+              filters.type && filters.type.split(",").includes("fiction")
+            }
           />
-          <Label htmlFor="fiction" className="truncate font-medium">
+          <Label
+            htmlFor="fiction"
+            className="truncate font-medium cursor-pointer"
+          >
             Fiction
           </Label>
         </div>
@@ -52,9 +59,16 @@ export default function TypeFilter({ filters }) {
           <Checkbox
             id="non-fiction"
             value="non-fiction"
+            className="cursor-pointer"
             onChange={(e) => handleCheckbox(e)}
+            defaultChecked={
+              filters.type && filters.type.split(",").includes("non-fiction")
+            }
           />
-          <Label htmlFor="non-fiction" className="truncate font-medium">
+          <Label
+            htmlFor="non-fiction"
+            className="truncate font-medium cursor-pointer"
+          >
             Non-Fiction
           </Label>
         </div>
