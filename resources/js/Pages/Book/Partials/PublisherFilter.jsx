@@ -11,7 +11,7 @@ export default function PublisherFilter({
     <FilterLayout title="Publisher">
       <div className="flex flex-col gap-1 p-4">
         {publishers.map((publisher, index) => (
-          <div key={index} className="flex items-center gap-2">
+          <div key={index} className="flex items-center gap-2 w-[193px]">
             <Checkbox
               id={publisher.publisher}
               value={publisher.publisher}

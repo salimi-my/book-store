@@ -7,7 +7,7 @@ export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
     <FilterLayout title="Author">
       <div className="flex flex-col gap-1 p-4">
         {authors.map((author, index) => (
-          <div key={index} className="flex items-center gap-2">
+          <div key={index} className="flex items-center gap-2 w-[193px]">
             <Checkbox
               id={author.author}
               value={author.author}

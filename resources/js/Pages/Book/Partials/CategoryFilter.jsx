@@ -11,7 +11,7 @@ export default function CategoryFilter({
     <FilterLayout title="Category">
       <div className="flex flex-col gap-1 p-4">
         {categories.map((category) => (
-          <div key={category.id} className="flex items-center gap-2">
+          <div key={category.id} className="flex items-center gap-2 w-[193px]">
             <Checkbox
               id={category.name}
               value={category.name}
