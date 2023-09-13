@@ -5,7 +5,7 @@ import FilterLayout from "@/Layouts/FilterLayout";
 export default function TypeFilter({ handleCheckbox, bookFilter }) {
   return (
     <FilterLayout title="Type">
-      <div className="flex flex-col gap-1 p-3">
+      <div className="flex flex-col gap-1 p-4">
         <div className="flex items-center gap-2">
           <Checkbox
             id="fiction"

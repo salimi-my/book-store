@@ -9,7 +9,7 @@ export default function CategoryFilter({
 }) {
   return (
     <FilterLayout title="Category">
-      <div className="flex flex-col gap-1 p-3">
+      <div className="flex flex-col gap-1 p-4">
         {categories.map((category) => (
           <div key={category.id} className="flex items-center gap-2">
             <Checkbox
