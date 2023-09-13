@@ -14,13 +14,14 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $filters = $request->only([
-            'type', 'category', 'author'
+            'type', 'category', 'author', 'publisher'
         ]);
 
         return inertia('Book/Index', [
             'filters' => $filters,
             'categories' => Category::orderBy('name', 'asc')->get(),
             'authors' => Book::select('author')->groupBy('author')->orderBy('author', 'asc')->get(),
+            'publishers' => Book::select('publisher')->groupBy('publisher')->orderBy('publisher', 'asc')->get(),
             'books' => Book::latest()->filter($filters)->paginate(12)->withQueryString()
         ]);
     }

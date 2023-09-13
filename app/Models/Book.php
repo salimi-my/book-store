@@ -31,6 +31,9 @@ class Book extends Model
         )->when(
             $filters['author'] ?? false,
             fn ($query, $value) => $query->whereIn('author', explode(',', $value))
+        )->when(
+            $filters['publisher'] ?? false,
+            fn ($query, $value) => $query->whereIn('publisher', explode(',', $value))
         );
     }
 }
