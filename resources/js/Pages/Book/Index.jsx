@@ -67,7 +67,7 @@ export default function Index({ filters, categories, books }) {
       </Head>
       <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
         <div className="flex">
-          <div className="hidden md:flex md:flex-col w-[260px] shrink-0 px-4 border-r border-gray-200 dark:border-gray-700">
+          <div className="hidden md:flex md:flex-col w-[260px] space-y-4 shrink-0 px-4 border-r border-gray-200 dark:border-gray-700">
             <TypeFilter
               handleCheckbox={handleCheckbox}
               bookFilter={bookFilter}
