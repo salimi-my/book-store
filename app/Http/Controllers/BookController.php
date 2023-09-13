@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -13,11 +14,12 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $filters = $request->only([
-            'type'
+            'type', 'category'
         ]);
 
         return inertia('Book/Index', [
             'filters' => $filters,
+            'categories' => Category::orderBy('name', 'asc')->get(),
             'books' => Book::latest()->filter($filters)->paginate(12)->withQueryString()
         ]);
     }

@@ -23,6 +23,11 @@ class Book extends Model
         return $query->when(
             $filters['type'] ?? false,
             fn ($query, $value) => $query->whereIn('type', explode(',', $value))
+        )->when(
+            $filters['category'] ?? false,
+            fn ($query, $value) => $query->whereHas('categories', function ($query)  use ($value) {
+                $query->whereIn('name', explode(',', $value));
+            })
         );
     }
 }
