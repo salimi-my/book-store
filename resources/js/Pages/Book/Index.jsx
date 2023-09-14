@@ -74,7 +74,12 @@ export default function Index({
       </Head>
       <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
         <div className="flex">
-          <div className="hidden md:flex md:flex-col w-[260px] space-y-4 shrink-0 px-4 border-r border-gray-200 dark:border-gray-700">
+          <p className="font-normal text-gray-700 dark:text-gray-400 md:py-4">
+            Showing {books.from} to {books.to} of {books.total} results
+          </p>
+        </div>
+        <div className="flex">
+          <div className="hidden md:flex md:flex-col w-[260px] space-y-4 shrink-0 pr-4 border-r border-gray-200 dark:border-gray-700">
             <TypeFilter
               handleCheckbox={handleCheckbox}
               bookFilter={bookFilter}
