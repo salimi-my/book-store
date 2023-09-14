@@ -14,7 +14,7 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $filters = $request->only([
-            'type', 'category', 'author', 'publisher'
+            'type', 'category', 'author', 'publisher', 'price'
         ]);
 
         return inertia('Book/Index', [

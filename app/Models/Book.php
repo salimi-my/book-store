@@ -34,6 +34,17 @@ class Book extends Model
         )->when(
             $filters['publisher'] ?? false,
             fn ($query, $value) => $query->whereIn('publisher', explode(',', $value))
+        )->when(
+            $filters['price'] ?? false,
+            fn ($query, $value) => $query->where(function ($query)  use ($value) {
+                $ranges = explode(',', $value);
+                foreach ($ranges as $range) {
+                    $rangeArray = explode('-', $range);
+                    $query->orWhere(function ($query)  use ($rangeArray) {
+                        $query->where('price', '>=', $rangeArray[0])->where('price', '<', $rangeArray[1]);
+                    });
+                }
+            })
         );
     }
 }

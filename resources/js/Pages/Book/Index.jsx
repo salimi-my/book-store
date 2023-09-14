@@ -9,6 +9,7 @@ import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
 import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
 import PublisherFilter from "@/Pages/Book/Partials/PublisherFilter";
+import PriceFilter from "./Partials/PriceFilter";
 
 export default function Index({
   filters,
@@ -92,6 +93,10 @@ export default function Index({
               handleCheckbox={handleCheckbox}
               bookFilter={bookFilter}
               publishers={publishers}
+            />
+            <PriceFilter
+              handleCheckbox={handleCheckbox}
+              bookFilter={bookFilter}
             />
           </div>
           <div className="grow px-4">

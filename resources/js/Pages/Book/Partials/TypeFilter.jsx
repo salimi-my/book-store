@@ -8,7 +8,7 @@ export default function TypeFilter({ handleCheckbox, bookFilter }) {
     <FilterLayout title="Type">
       <div className="flex flex-col">
         <ScrollAreaLayout>
-          <div className="flex items-center gap-2 w-[193px] pt-4">
+          <div className="flex items-center gap-2 w-[193px] pt-3">
             <Checkbox
               id="fiction"
               value="fiction"
