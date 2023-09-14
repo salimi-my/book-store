@@ -46,7 +46,7 @@ export default function PublisherFilter({
           <Flowbite theme={{ theme: searchFilterTheme }}>
             <TextInput
               icon={Search}
-              placeholder="Search author..."
+              placeholder="Search publisher..."
               required
               type="text"
               onChange={(e) => setSearchVal(e.target.value)}
