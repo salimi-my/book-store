@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Mockery\Undefined;
 
 class Book extends Model
 {
     use HasFactory;
 
     protected $fillable = ['type', 'title', 'description', 'image', 'isbn', 'author', 'publisher', 'stocks', 'pages', 'weight', 'price'];
+
+    protected $sortable = ['price,asc', 'price,desc', 'title,asc', 'title,desc'];
 
     public function categories(): BelongsToMany
     {
@@ -45,6 +48,15 @@ class Book extends Model
                     });
                 }
             })
+        )->when(
+            !array_key_exists('sort', $filters) ?? false,
+            fn ($query) => $query->orderBy('created_at', 'desc')
+        )->when(
+            $filters['sort'] ?? false,
+            function ($query, $value) {
+                $sortArr = explode(',', $value);
+                !in_array($value, $this->sortable) ? $query : $query->orderBy($sortArr[0], $sortArr[1]);
+            }
         );
     }
 }

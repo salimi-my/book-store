@@ -10,6 +10,7 @@ import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
 import PublisherFilter from "@/Pages/Book/Partials/PublisherFilter";
 import PriceFilter from "./Partials/PriceFilter";
+import SortBy from "./Partials/SortBy";
 
 export default function Index({
   filters,
@@ -47,6 +48,20 @@ export default function Index({
     });
   };
 
+  const handleSelect = (e) => {
+    const sortBy = e.target.value;
+
+    let newBookFilter = bookFilter;
+    delete newBookFilter.sort;
+
+    setBookFilter({
+      ...newBookFilter,
+      ...(sortBy.length > 0 && {
+        sort: sortBy,
+      }),
+    });
+  };
+
   const submitFilter = useCallback(
     debounce(
       (bookFilter) =>
@@ -73,10 +88,11 @@ export default function Index({
         />
       </Head>
       <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
-        <div className="flex">
-          <p className="font-normal text-gray-700 dark:text-gray-400 md:py-4">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-center md:justify-between items-center pb-4">
+          <p className="text-sm font-medium text-gray-900 dark:text-gray-300">
             Showing {books.from} to {books.to} of {books.total} results
           </p>
+          <SortBy handleSelect={handleSelect} bookFilter={bookFilter} />
         </div>
         <div className="flex">
           <div className="hidden md:flex md:flex-col w-[260px] space-y-4 shrink-0 pr-4 border-r border-gray-200 dark:border-gray-700">
@@ -104,7 +120,7 @@ export default function Index({
               bookFilter={bookFilter}
             />
           </div>
-          <div className="grow px-4">
+          <div className="grow md:pl-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-y-10">
               {books.data.map((book) => (
                 <BookCard key={book.id} book={book} />
