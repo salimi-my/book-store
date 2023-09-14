@@ -4,7 +4,7 @@ export default function FilterLayout({ title, children }) {
   return (
     <Accordion>
       <Accordion.Panel>
-        <Accordion.Title className="py-2 px-3 focus:ring-2">
+        <Accordion.Title className="py-2 px-3 focus:ring-2 text-sm">
           {title}
         </Accordion.Title>
         <Accordion.Content className="p-0 relative">
