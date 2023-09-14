@@ -17,9 +17,7 @@ export default function Index({
   publishers,
   books,
 }) {
-  const [bookFilter, setBookFilter] = useState({
-    filters,
-  });
+  const [bookFilter, setBookFilter] = useState(filters);
 
   const handleCheckbox = (e, filterType) => {
     const filter = e.target.value;
