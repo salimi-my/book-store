@@ -57,7 +57,7 @@ export default function CategoryFilter({
           {categoryList.map((category) => (
             <div
               key={category.id}
-              className="flex items-center gap-2 w-[193px]"
+              className="flex items-center gap-2 w-[200px]"
             >
               <Checkbox
                 id={category.name}

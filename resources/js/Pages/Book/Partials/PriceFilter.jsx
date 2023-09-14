@@ -8,7 +8,7 @@ export default function PriceFilter({ handleCheckbox, bookFilter }) {
     <FilterLayout title="Price Range">
       <div className="flex flex-col">
         <ScrollAreaLayout>
-          <div className="flex items-center gap-2 w-[193px] pt-3">
+          <div className="flex items-center gap-2 w-[200px] pt-3">
             <Checkbox
               id="0-50"
               value="0-50"
@@ -25,7 +25,7 @@ export default function PriceFilter({ handleCheckbox, bookFilter }) {
               Under RM50
             </Label>
           </div>
-          <div className="flex items-center gap-2 w-[193px]">
+          <div className="flex items-center gap-2 w-[200px]">
             <Checkbox
               id="50-100"
               value="50-100"
@@ -43,7 +43,7 @@ export default function PriceFilter({ handleCheckbox, bookFilter }) {
               RM50 - RM100
             </Label>
           </div>
-          <div className="flex items-center gap-2 w-[193px]">
+          <div className="flex items-center gap-2 w-[200px]">
             <Checkbox
               id="100-150"
               value="100-150"
@@ -61,7 +61,7 @@ export default function PriceFilter({ handleCheckbox, bookFilter }) {
               RM100 - RM150
             </Label>
           </div>
-          <div className="flex items-center gap-2 w-[193px]">
+          <div className="flex items-center gap-2 w-[200px]">
             <Checkbox
               id="150-200"
               value="150-200"
@@ -79,7 +79,7 @@ export default function PriceFilter({ handleCheckbox, bookFilter }) {
               EM150 - RM200
             </Label>
           </div>
-          <div className="flex items-center gap-2 w-[193px]">
+          <div className="flex items-center gap-2 w-[200px]">
             <Checkbox
               id="200-10000"
               value="200-10000"

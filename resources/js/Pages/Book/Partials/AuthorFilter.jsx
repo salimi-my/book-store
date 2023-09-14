@@ -51,7 +51,7 @@ export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
         </div>
         <ScrollAreaLayout>
           {authorList.map((author, index) => (
-            <div key={index} className="flex items-center gap-2 w-[193px]">
+            <div key={index} className="flex items-center gap-2 w-[200px]">
               <Checkbox
                 id={author.author}
                 value={author.author}

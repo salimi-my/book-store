@@ -55,7 +55,7 @@ export default function PublisherFilter({
         </div>
         <ScrollAreaLayout>
           {publisherList.map((publisher, index) => (
-            <div key={index} className="flex items-center gap-2 w-[193px]">
+            <div key={index} className="flex items-center gap-2 w-[200px]">
               <Checkbox
                 id={publisher.publisher}
                 value={publisher.publisher}
