@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Checkbox, Flowbite, Label, TextInput } from "flowbite-react";
 
 import FilterLayout from "@/Layouts/FilterLayout";
+import ScrollAreaLayout from "@/Layouts/ScrollAreaLayout";
 import searchFilterTheme from "@/Pages/Book/Partials/searchBarTheme";
 
 export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
@@ -36,36 +37,40 @@ export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
 
   return (
     <FilterLayout title="Author">
-      <div className="flex flex-col gap-1 p-4">
-        <Flowbite theme={{ theme: searchFilterTheme }}>
-          <TextInput
-            icon={Search}
-            placeholder="Search author..."
-            required
-            type="text"
-            onChange={(e) => setSearchVal(e.target.value)}
-          />
-        </Flowbite>
-        {authorList.map((author, index) => (
-          <div key={index} className="flex items-center gap-2 w-[193px]">
-            <Checkbox
-              id={author.author}
-              value={author.author}
-              className="cursor-pointer"
-              onChange={(e) => handleCheckbox(e, "author")}
-              defaultChecked={
-                bookFilter.author &&
-                bookFilter.author.split(",").includes(author.author)
-              }
+      <div className="flex flex-col">
+        <div className="px-4 pt-3 bg-white dark:bg-gray-800">
+          <Flowbite theme={{ theme: searchFilterTheme }}>
+            <TextInput
+              icon={Search}
+              placeholder="Search author..."
+              required
+              type="text"
+              onChange={(e) => setSearchVal(e.target.value)}
             />
-            <Label
-              htmlFor={author.author}
-              className="truncate font-medium cursor-pointer"
-            >
-              {author.author}
-            </Label>
-          </div>
-        ))}
+          </Flowbite>
+        </div>
+        <ScrollAreaLayout>
+          {authorList.map((author, index) => (
+            <div key={index} className="flex items-center gap-2 w-[193px]">
+              <Checkbox
+                id={author.author}
+                value={author.author}
+                className="cursor-pointer"
+                onChange={(e) => handleCheckbox(e, "author")}
+                defaultChecked={
+                  bookFilter.author &&
+                  bookFilter.author.split(",").includes(author.author)
+                }
+              />
+              <Label
+                htmlFor={author.author}
+                className="truncate font-medium cursor-pointer"
+              >
+                {author.author}
+              </Label>
+            </div>
+          ))}
+        </ScrollAreaLayout>
       </div>
     </FilterLayout>
   );

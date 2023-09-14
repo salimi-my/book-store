@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Checkbox, Flowbite, Label, TextInput } from "flowbite-react";
 
 import FilterLayout from "@/Layouts/FilterLayout";
+import ScrollAreaLayout from "@/Layouts/ScrollAreaLayout";
 import searchFilterTheme from "@/Pages/Book/Partials/searchBarTheme";
 
 export default function PublisherFilter({
@@ -40,36 +41,40 @@ export default function PublisherFilter({
 
   return (
     <FilterLayout title="Publisher">
-      <div className="flex flex-col gap-1 p-4">
-        <Flowbite theme={{ theme: searchFilterTheme }}>
-          <TextInput
-            icon={Search}
-            placeholder="Search author..."
-            required
-            type="text"
-            onChange={(e) => setSearchVal(e.target.value)}
-          />
-        </Flowbite>
-        {publisherList.map((publisher, index) => (
-          <div key={index} className="flex items-center gap-2 w-[193px]">
-            <Checkbox
-              id={publisher.publisher}
-              value={publisher.publisher}
-              className="cursor-pointer"
-              onChange={(e) => handleCheckbox(e, "publisher")}
-              defaultChecked={
-                bookFilter.publisher &&
-                bookFilter.publisher.split(",").includes(publisher.publisher)
-              }
+      <div className="flex flex-col">
+        <div className="px-4 pt-3 bg-white dark:bg-gray-800">
+          <Flowbite theme={{ theme: searchFilterTheme }}>
+            <TextInput
+              icon={Search}
+              placeholder="Search author..."
+              required
+              type="text"
+              onChange={(e) => setSearchVal(e.target.value)}
             />
-            <Label
-              htmlFor={publisher.publisher}
-              className="truncate font-medium cursor-pointer"
-            >
-              {publisher.publisher}
-            </Label>
-          </div>
-        ))}
+          </Flowbite>
+        </div>
+        <ScrollAreaLayout>
+          {publisherList.map((publisher, index) => (
+            <div key={index} className="flex items-center gap-2 w-[193px]">
+              <Checkbox
+                id={publisher.publisher}
+                value={publisher.publisher}
+                className="cursor-pointer"
+                onChange={(e) => handleCheckbox(e, "publisher")}
+                defaultChecked={
+                  bookFilter.publisher &&
+                  bookFilter.publisher.split(",").includes(publisher.publisher)
+                }
+              />
+              <Label
+                htmlFor={publisher.publisher}
+                className="truncate font-medium cursor-pointer"
+              >
+                {publisher.publisher}
+              </Label>
+            </div>
+          ))}
+        </ScrollAreaLayout>
       </div>
     </FilterLayout>
   );
