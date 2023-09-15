@@ -1,5 +1,4 @@
 import { Label, Select } from "flowbite-react";
-import React from "react";
 
 export default function SortBy({ handleSelect, bookFilter }) {
   return (

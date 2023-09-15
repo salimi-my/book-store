@@ -5,12 +5,12 @@ import { useCallback, useEffect, useState } from "react";
 import BookCard from "@/Components/BookCard";
 import MainLayout from "@/Layouts/MainLayout";
 import Pagination from "@/Components/Pagination";
+import SortBy from "@/Pages/Book/Partials/SortBy";
 import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
+import PriceFilter from "@/Pages/Book/Partials/PriceFilter";
 import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
 import PublisherFilter from "@/Pages/Book/Partials/PublisherFilter";
-import PriceFilter from "./Partials/PriceFilter";
-import SortBy from "./Partials/SortBy";
 
 export default function Index({
   filters,
@@ -79,7 +79,7 @@ export default function Index({
   }, [bookFilter]);
 
   return (
-    <MainLayout>
+    <MainLayout filters={bookFilter}>
       <Head>
         <title>Books Listing — Book Store</title>
         <meta

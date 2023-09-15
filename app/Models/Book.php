@@ -24,6 +24,14 @@ class Book extends Model
     public function scopeFilter(Builder $query, array $filters): Builder
     {
         return $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $value) => $query->where(function ($query)  use ($value) {
+                $query->where('title', 'LIKE', '%' . $value . '%')
+                    ->orWhere('isbn', 'LIKE', '%' . $value . '%')
+                    ->orWhere('author', 'LIKE', '%' . $value . '%')
+                    ->orWhere('publisher', 'LIKE', '%' . $value . '%');
+            })
+        )->when(
             $filters['type'] ?? false,
             fn ($query, $value) => $query->whereIn('type', explode(',', $value))
         )->when(

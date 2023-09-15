@@ -1,24 +1,12 @@
 import { Link } from "@inertiajs/react";
 import { LogIn, Search } from "lucide-react";
-import { Navbar, TextInput, Button, Flowbite } from "flowbite-react";
+import { Navbar, Button } from "flowbite-react";
 
 import UserDropdown from "@/Components/UserDropdown";
 import DarkModeToggle from "@/Components/DarkModeToggle";
+import SearchBar from "@/Components/SearchBar";
 
-const searchInput = {
-  textInput: {
-    field: {
-      base: "relative w-full md:w-[350px] lg:w-[500px]",
-      input: {
-        withAddon: {
-          off: "rounded-full",
-        },
-      },
-    },
-  },
-};
-
-export default function MainNavbar({ user }) {
+export default function MainNavbar({ user, filters }) {
   return (
     <Navbar border className="sticky top-0 z-20">
       <Navbar.Brand as={Link} href="/">
@@ -48,14 +36,7 @@ export default function MainNavbar({ user }) {
         )}
       </div>
       <Navbar.Collapse>
-        <Flowbite theme={{ theme: searchInput }}>
-          <TextInput
-            icon={Search}
-            placeholder="Search for Title, Author, Keyword or ISBN"
-            required
-            type="text"
-          />
-        </Flowbite>
+        <SearchBar filters={filters} />
       </Navbar.Collapse>
     </Navbar>
   );
