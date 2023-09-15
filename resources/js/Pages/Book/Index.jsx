@@ -135,7 +135,7 @@ export default function Index({
           </div>
 
           <div className="grow md:pl-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-y-10">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 lg:gap-x-6 gap-y-4 lg:gap-y-8">
               {books.data.map((book) => (
                 <BookCard key={book.id} book={book} />
               ))}
