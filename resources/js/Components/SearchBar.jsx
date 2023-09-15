@@ -53,7 +53,7 @@ export default function SearchBar({ filters }) {
             value={data.search}
             onChange={(e) => setData("search", e.target.value)}
             placeholder="Search for Title, Author, Keyword or ISBN"
-            className="block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm pl-10 rounded-full"
+            className="block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm pl-10 pr-20 rounded-full"
           />
           <div className="absolute inset-y-0 right-0 flex items-center pr-[10px]">
             <button
