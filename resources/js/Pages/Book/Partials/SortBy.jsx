@@ -2,8 +2,8 @@ import { Label, Select } from "flowbite-react";
 
 export default function SortBy({ handleSelect, bookFilter }) {
   return (
-    <div className="flex items-center space-x-3">
-      <Label htmlFor="sort" value="Sort by:" />
+    <div className="flex flex-col md:flex-row md:items-center md:space-x-3">
+      <Label className="hidden md:block" htmlFor="sort" value="Sort by:" />
       <Select
         id="sort"
         sizing="sm"

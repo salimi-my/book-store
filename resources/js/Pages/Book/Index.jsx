@@ -1,5 +1,6 @@
 import { debounce } from "lodash";
 import { Head, router } from "@inertiajs/react";
+import { SlidersHorizontal } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 import BookCard from "@/Components/BookCard";
@@ -9,6 +10,7 @@ import SortBy from "@/Pages/Book/Partials/SortBy";
 import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
 import PriceFilter from "@/Pages/Book/Partials/PriceFilter";
 import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
+import MobileFilter from "@/Pages/Book/Partials/MobileFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
 import PublisherFilter from "@/Pages/Book/Partials/PublisherFilter";
 
@@ -87,13 +89,24 @@ export default function Index({
           content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
         />
       </Head>
+
       <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
-        <div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-center md:justify-between items-center pb-4">
-          <p className="text-sm font-medium text-gray-900 dark:text-gray-300">
+        <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-center md:justify-between items-center pb-4">
+          <p className="text-sm font-medium text-gray-900 dark:text-gray-300 order-2 md:order-none">
             Showing {books.from} to {books.to} of {books.total} results
           </p>
-          <SortBy handleSelect={handleSelect} bookFilter={bookFilter} />
+          <div className="w-full md:w-auto grid grid-cols-2 gap-2 md:grid-cols-1 md:gap-0">
+            <MobileFilter
+              handleCheckbox={handleCheckbox}
+              bookFilter={bookFilter}
+              categories={categories}
+              authors={authors}
+              publishers={publishers}
+            />
+            <SortBy handleSelect={handleSelect} bookFilter={bookFilter} />
+          </div>
         </div>
+
         <div className="flex">
           <div className="hidden md:flex md:flex-col w-[260px] space-y-4 shrink-0 pr-4 border-r border-gray-200 dark:border-gray-700">
             <TypeFilter
@@ -120,6 +133,7 @@ export default function Index({
               bookFilter={bookFilter}
             />
           </div>
+
           <div className="grow md:pl-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-y-10">
               {books.data.map((book) => (
