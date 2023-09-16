@@ -22,7 +22,7 @@ Route::get('/', function () {
     return Inertia::render('Landing', []);
 });
 
-Route::resource('book', BookController::class)->only(['index']);
+Route::resource('book', BookController::class)->only(['index', 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
