@@ -134,11 +134,27 @@ export default function Index({
           </div>
 
           <div className="grow md:pl-4">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 lg:gap-x-6 gap-y-4 lg:gap-y-8">
-              {books.data.map((book) => (
-                <BookCard key={book.id} book={book} />
-              ))}
-            </div>
+            {books.data.length > 0 && (
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 lg:gap-x-6 gap-y-4 lg:gap-y-8">
+                {books.data.map((book) => (
+                  <BookCard key={book.id} book={book} />
+                ))}
+              </div>
+            )}
+
+            {books.data.length < 1 && (
+              <div className="w-full flex justify-center">
+                <div className="w-full flex rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800 flex-col">
+                  <div className="flex h-full flex-col justify-start p-3 lg:p-6">
+                    <p class="text-gray-900 dark:text-white text-center">
+                      Sorry, there are no books found. Please try again with
+                      different keywords or filters.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {books.data.length > 0 && (
               <div className="w-full flex justify-center mt-10">
                 <Pagination links={books.links} />
