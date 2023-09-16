@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('type', ['Fiction', 'Non-Fiction']);
 
             $table->string('title', 255);
+            $table->string('slug', 255)->unique();
             $table->text('description');
             $table->string('image');
             $table->string('isbn', 255);

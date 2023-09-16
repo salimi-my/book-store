@@ -17,6 +17,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Those Summer Nights',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Those Summer Nights'))),
                 'description' => '<p>
                     Hannah used to be all about focus, back before she shattered her ankle and her
                     Olympic dreams in one bad soccer play. These days, she’s all about
@@ -51,6 +52,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Girl, Goddess, Queen',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Girl, Goddess, Queen'))),
                 'description' => '<p>
                     The feminist myths of Madeline Miller meet the #spice of Sarah J. Maas (with a
                     hefty slice of Bridgerton\'s sexy, witty banter) in this fierce, fresh and
@@ -85,6 +87,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Portrait of a Thief',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Portrait of a Thief'))),
                 'description' => '<p>
                     History is told by the conquerors. Across the Western world, museums display
                     the spoils of war, of conquest, of colonialism: priceless pieces of art looted
@@ -133,6 +136,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Tomorrow And Tomorrow And Tomorrow',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Tomorrow And Tomorrow And Tomorrow'))),
                 'description' => '<p>This is not a romance, but it is about love.</p>
                     <p>Will Chen plans to steal them back.</p>
                     <p>
@@ -157,6 +161,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Sparring Partners',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Sparring Partners'))),
                 'description' => '<p>
                     “Homecoming” takes us back to Ford County, the fictional setting of many of
                     John Grisham’s unforgettable stories. Jake Brigance is back, but he’s not in
@@ -198,6 +203,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Mysteries Of Thorn Manor',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Mysteries Of Thorn Manor'))),
                 'description' => '<p>
                     In this delightful sequel novella to the New York Times bestselling Sorcery of
                     Thorns, Elisabeth, Nathaniel, and Silas must unravel the magical trap keeping
@@ -236,6 +242,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Maybe Not',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Maybe Not'))),
                 'description' => '<p>
                     When Warren has the opportunity to live with a female roommate, he instantly
                     agrees. It could be an exciting change.
@@ -266,6 +273,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'King of Pride',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'King of Pride'))),
                 'description' => '<p>
                     She\'s his opposite in every way...and the greatest temptation he\'s ever known.
                     </p>
@@ -312,6 +320,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Happy Place',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Happy Place'))),
                 'description' => '<p>
                     Harriet and Wyn are the perfect couple - they go together like bread and
                     butter, gin and tonic, Blake Lively and Ryan Reynolds. Every year for the past
@@ -338,6 +347,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Throwback',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Throwback'))),
                 'description' => '<p>
                     Back to the Future meets To All the Boys in this thrilling new YA time-travel
                     romance by award-winning author Maurene Goo.
@@ -372,6 +382,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'If Only They Knew',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'If Only They Knew'))),
                 'description' => '<p>
                     The story of Saloma, a minority in Singapore and her struggle to succeed in
                     life and marriage, shaped by her upbringing and relationship with her race.
@@ -405,6 +416,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Fiction',
                 'title' => 'Hades',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Hades'))),
                 'description' => '<p>
                     In 2012, sixteen-year-old troublemaker Kei and his mother move into a decaying
                     low-cost flat from the slums at the edge of town, right next to Maryam, a
@@ -426,6 +438,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Poverty, Riches and Wealth: Moving from a Life of Lack into True Kingdom Abundance',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Poverty, Riches and Wealth: Moving from a Life of Lack into True Kingdom Abundance'))),
                 'description' => '<p>Overcome the Never-Enough Mentality to Walk in True Abundance.</p>
                     <p>
                     Prosperity. It\'s one of the most dividing words in the Church. Some pastors
@@ -455,6 +468,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Getting China Wrong',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Getting China Wrong'))),
                 'description' => '<p>
                     The West\'s strategy of engagement with China has failed. More than three
                     decades of trade and investment with the advanced democracies have left that
@@ -490,6 +504,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Self-Publishing For Dummies, 2nd Edition',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Self-Publishing For Dummies, 2nd Edition'))),
                 'description' => '<p>Get your books into the hands of readers with this simple how-to guide.</p>
                     <p>
                     Self-Publishing For Dummies takes you through the entire process of publishing
@@ -515,6 +530,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Quarterlife: The Search for Self in Early Adulthood',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Quarterlife: The Search for Self in Early Adulthood'))),
                 'description' => '<p>
                     An innovative psychotherapist tackles the overlooked stage of Quarterlife—the
                     years between adolescence and midlife—and provides a “fascinating” guide “on
@@ -566,6 +582,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Unlock Your Wealth Potential: Harness the Power of Chinese Astrology & Global Trends for Success (2024 - 2028)',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Unlock Your Wealth Potential: Harness the Power of Chinese Astrology & Global Trends for Success (2024 - 2028)'))),
                 'description' => '<p>
                     Read This Book To Prepare For The Great Transition & Opportunities Awaiting
                     You!
@@ -606,6 +623,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Quality Investing: Owning The Best Companies For The Long Term',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Quality Investing: Owning The Best Companies For The Long Term'))),
                 'description' => '<p>
                     Quality. We all make judgments about it every day. Yet articulating a clear
                     definition of quality in an investing context is challenging. This book
@@ -642,6 +660,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Money: Know More, Make More, Give More',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Money: Know More, Make More, Give More'))),
                 'description' => '<p>
                     Do you want to get to the stage - soon - where you are truly financially
                     independent, able to use your money in the way you\'d like, and be completely
@@ -675,6 +694,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Invested',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Invested'))),
                 'description' => '<p>
                     “To say Charles Schwab is an entrepreneur is actually an understatement. He
                     really is a revolutionary.”—Phil Knight, co-founder of Nike, author of Shoe
@@ -727,6 +747,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'The Crypto Handbook: The ultimate guide to understanding and investing in DIGITAL ASSETS, WEB3, the METAVERSE and more',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'The Crypto Handbook: The ultimate guide to understanding and investing in DIGITAL ASSETS, WEB3, the METAVERSE and more'))),
                 'description' => '<p>
                     Turbulence in crypto markets has left investors and potential investors
                     terrified about the future of digital assets and decentralised finance.
@@ -762,6 +783,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'How I Made $2,000,000 in the Stock Market',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'How I Made $2,000,000 in the Stock Market'))),
                 'description' => '<p>"THE TIMELESS BESTSELLER"</p>
                     <p>
                     The amazing story of a world-famous dancer who trained himself to become one
@@ -804,6 +826,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Rich Dad Poor Dad (25th Anniversary Edition)',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Rich Dad Poor Dad (25th Anniversary Edition)'))),
                 'description' => '<p>
                     April of 2022 marks a 25-year milestone for the personal finance classic Rich
                     Dad Poor Dad that still ranks as the #1 Personal Finance book of all time. And
@@ -847,6 +870,7 @@ class BookSeeder extends Seeder
             [
                 'type' => 'Non-Fiction',
                 'title' => 'Killer ChatGPT Prompts: Harness the Power of AI for Success and Profit',
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', 'Killer ChatGPT Prompts: Harness the Power of AI for Success and Profit'))),
                 'description' => '<p>
                     Unlock the full capabilities of ChatGPT at work, at home, and in your
                     day-to-day
