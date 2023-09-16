@@ -13,9 +13,6 @@ export default function SearchBar({ filters }) {
       ...(data.search.length > 0 && {
         search: data.search,
       }),
-      ...(filters?.page?.length > 0 && {
-        page: filters.page,
-      }),
       ...(filters?.type?.length > 0 && {
         type: filters.type,
       }),
