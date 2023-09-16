@@ -1,6 +1,5 @@
 import { debounce } from "lodash";
 import { Head, router } from "@inertiajs/react";
-import { SlidersHorizontal } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 import BookCard from "@/Components/BookCard";
