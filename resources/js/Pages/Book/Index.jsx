@@ -8,6 +8,7 @@ import Pagination from "@/Components/Pagination";
 import SortBy from "@/Pages/Book/Partials/SortBy";
 import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
 import PriceFilter from "@/Pages/Book/Partials/PriceFilter";
+import ClearFilter from "@/Pages/Book/Partials/ClearFilter";
 import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
 import MobileFilter from "@/Pages/Book/Partials/MobileFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
@@ -91,7 +92,7 @@ export default function Index({
 
       <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
         <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-center md:justify-between items-center pb-4">
-          <p className="text-sm font-medium text-gray-900 dark:text-gray-300 order-2 md:order-none">
+          <p className="text-sm font-medium text-gray-900 dark:text-gray-300">
             Showing {books.from} to {books.to} of {books.total} results
           </p>
           <div className="w-full md:w-auto grid grid-cols-2 gap-2 md:grid-cols-1 md:gap-0">
@@ -108,6 +109,7 @@ export default function Index({
 
         <div className="flex">
           <div className="hidden md:flex md:flex-col w-[260px] space-y-4 shrink-0 pr-4 border-r border-gray-200 dark:border-gray-700">
+            <ClearFilter bookFilter={bookFilter} />
             <TypeFilter
               handleCheckbox={handleCheckbox}
               bookFilter={bookFilter}

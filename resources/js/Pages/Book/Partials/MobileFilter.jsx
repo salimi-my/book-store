@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
-import TypeFilter from "./TypeFilter";
-import CategoryFilter from "./CategoryFilter";
-import AuthorFilter from "./AuthorFilter";
-import PublisherFilter from "./PublisherFilter";
-import PriceFilter from "./PriceFilter";
+
+import TypeFilter from "@/Pages/Book/Partials/TypeFilter";
+import PriceFilter from "@/Pages/Book/Partials/PriceFilter";
+import ClearFilter from "@/Pages/Book/Partials/ClearFilter";
+import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
+import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
+import PublisherFilter from "@/Pages/Book/Partials/PublisherFilter";
 
 export default function MobileFilter({
   handleCheckbox,
@@ -49,6 +51,7 @@ export default function MobileFilter({
         </div>
 
         <div className="flex flex-col space-y-4 pt-5">
+          <ClearFilter bookFilter={bookFilter} />
           <TypeFilter
             handleCheckbox={handleCheckbox}
             bookFilter={bookFilter}
