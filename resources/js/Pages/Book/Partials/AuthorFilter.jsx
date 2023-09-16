@@ -7,7 +7,12 @@ import FilterLayout from "@/Layouts/FilterLayout";
 import ScrollAreaLayout from "@/Layouts/ScrollAreaLayout";
 import searchFilterTheme from "@/Pages/Book/Partials/searchBarTheme";
 
-export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
+export default function AuthorFilter({
+  handleCheckbox,
+  bookFilter,
+  authors,
+  isMobile,
+}) {
   const [authorList, setAuthorList] = useState(authors);
   const [searchVal, setSearchVal] = useState("");
 
@@ -53,7 +58,7 @@ export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
           {authorList.map((author, index) => (
             <div key={index} className="flex items-center gap-2 w-[200px]">
               <Checkbox
-                id={author.author}
+                id={`author-` + index + `${isMobile ? "-mobile" : ""}`}
                 value={author.author}
                 className="cursor-pointer"
                 onChange={(e) => handleCheckbox(e, "author")}
@@ -63,7 +68,7 @@ export default function AuthorFilter({ handleCheckbox, bookFilter, authors }) {
                 }
               />
               <Label
-                htmlFor={author.author}
+                htmlFor={`author-` + index + `${isMobile ? "-mobile" : ""}`}
                 className="truncate font-medium cursor-pointer"
               >
                 {author.author}

@@ -49,25 +49,33 @@ export default function MobileFilter({
         </div>
 
         <div className="flex flex-col space-y-4 pt-5">
-          <TypeFilter handleCheckbox={handleCheckbox} bookFilter={bookFilter} />
+          <TypeFilter
+            handleCheckbox={handleCheckbox}
+            bookFilter={bookFilter}
+            isMobile={true}
+          />
           <CategoryFilter
             handleCheckbox={handleCheckbox}
             bookFilter={bookFilter}
             categories={categories}
+            isMobile={true}
           />
           <AuthorFilter
             handleCheckbox={handleCheckbox}
             bookFilter={bookFilter}
             authors={authors}
+            isMobile={true}
           />
           <PublisherFilter
             handleCheckbox={handleCheckbox}
             bookFilter={bookFilter}
             publishers={publishers}
+            isMobile={true}
           />
           <PriceFilter
             handleCheckbox={handleCheckbox}
             bookFilter={bookFilter}
+            isMobile={true}
           />
         </div>
       </div>

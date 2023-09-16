@@ -11,6 +11,7 @@ export default function PublisherFilter({
   handleCheckbox,
   bookFilter,
   publishers,
+  isMobile,
 }) {
   const [publisherList, setPublisherList] = useState(publishers);
   const [searchVal, setSearchVal] = useState("");
@@ -57,7 +58,7 @@ export default function PublisherFilter({
           {publisherList.map((publisher, index) => (
             <div key={index} className="flex items-center gap-2 w-[200px]">
               <Checkbox
-                id={publisher.publisher}
+                id={`publisher-` + index + `${isMobile ? "-mobile" : ""}`}
                 value={publisher.publisher}
                 className="cursor-pointer"
                 onChange={(e) => handleCheckbox(e, "publisher")}
@@ -67,7 +68,7 @@ export default function PublisherFilter({
                 }
               />
               <Label
-                htmlFor={publisher.publisher}
+                htmlFor={`publisher-` + index + `${isMobile ? "-mobile" : ""}`}
                 className="truncate font-medium cursor-pointer"
               >
                 {publisher.publisher}

@@ -11,6 +11,7 @@ export default function CategoryFilter({
   handleCheckbox,
   bookFilter,
   categories,
+  isMobile,
 }) {
   const [categoryList, setCategoryList] = useState(categories);
   const [searchVal, setSearchVal] = useState("");
@@ -54,13 +55,10 @@ export default function CategoryFilter({
           </Flowbite>
         </div>
         <ScrollAreaLayout>
-          {categoryList.map((category) => (
-            <div
-              key={category.id}
-              className="flex items-center gap-2 w-[200px]"
-            >
+          {categoryList.map((category, index) => (
+            <div key={index} className="flex items-center gap-2 w-[200px]">
               <Checkbox
-                id={category.name}
+                id={`category-` + index + `${isMobile ? "-mobile" : ""}`}
                 value={category.name}
                 className="cursor-pointer"
                 onChange={(e) => handleCheckbox(e, "category")}
@@ -70,7 +68,7 @@ export default function CategoryFilter({
                 }
               />
               <Label
-                htmlFor={category.name}
+                htmlFor={`category-` + index + `${isMobile ? "-mobile" : ""}`}
                 className="truncate font-medium cursor-pointer"
               >
                 {category.name}
