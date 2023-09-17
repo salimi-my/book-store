@@ -25,12 +25,12 @@ export default function BookCard({ book }) {
           <p className="font-medium text-gray-800 dark:text-gray-200 text-sm md:text-base">
             {price}
           </p>
-          {book.price > 0 && (
+          {book.stocks > 0 && (
             <p className="text-xs md:text-sm mt-1 text-green-500 dark:text-green-400">
               In Stock
             </p>
           )}
-          {book.price < 1 && (
+          {book.stocks < 1 && (
             <p className="text-sm mt-1 text-red-500 dark:text-red-400">
               Out of Stock
             </p>
