@@ -3,6 +3,7 @@ import { Accordion, Button } from "flowbite-react";
 
 import MainLayout from "@/Layouts/MainLayout";
 import BookDescription from "@/Components/BookDescription";
+import ShowBreadcrumb from "@/Pages/Book/Breadcrumb/ShowBreadcrumb";
 
 export default function Show({ book }) {
   const price = book.price.toLocaleString("en-MY", {
@@ -25,7 +26,8 @@ export default function Show({ book }) {
         />
       </Head>
 
-      <div className="container max-w-7xl mx-auto my-20 px-4 xl:px-0">
+      <div className="container max-w-7xl mx-auto my-10 px-4 xl:px-0">
+        <ShowBreadcrumb title={book.title} />
         <div className="grid md:grid-cols-2 gap-10">
           <div className="flex flex-col">
             <div className="flex rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800 flex-col">
