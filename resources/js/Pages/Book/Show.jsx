@@ -1,17 +1,25 @@
-import MainLayout from "@/Layouts/MainLayout";
 import { Head } from "@inertiajs/react";
 import { Accordion, Button } from "flowbite-react";
+import { useEffect, useRef, useState } from "react";
+
+import MainLayout from "@/Layouts/MainLayout";
 
 export default function Show({ book }) {
+  const descriptionRef = useRef(null);
+  const [height, setHeight] = useState(0);
+  const [isViewMore, setIsViewMore] = useState(false);
+
+  useEffect(() => {
+    setHeight(descriptionRef.current.clientHeight);
+  }, []);
+
+  const descriptionArr = book.description.split("\\n");
+
   const price = book.price.toLocaleString("en-MY", {
     style: "currency",
     currency: "MYR",
     maximumFractionDigits: 2,
   });
-
-  const descriptionArr = book.description.split("\\n");
-
-  console.log(descriptionArr);
 
   return (
     <MainLayout>
@@ -44,7 +52,9 @@ export default function Show({ book }) {
           <div className="flex flex-col text-gray-900 dark:text-white">
             <h1 className="font-medium text-4xl">{book.title}</h1>
 
-            <h2 className="font-bold text-3xl text-cyan-700 mt-3">{price}</h2>
+            <h2 className="font-bold text-3xl text-cyan-700 dark:text-cyan-600 mt-3">
+              {price}
+            </h2>
 
             <div className="mt-5 font-medium">
               <p>
@@ -73,13 +83,40 @@ export default function Show({ book }) {
 
             <hr className="mt-8 border-gray-200 dark:border-gray-700" />
 
-            <div className="mt-8">
+            <div
+              ref={descriptionRef}
+              className={`mt-8 relative ${
+                height > 250
+                  ? !isViewMore
+                    ? "max-h-[250px] overflow-hidden"
+                    : ""
+                  : ""
+              }`}
+            >
               <p className="font-medium">Description:</p>
               {descriptionArr.map((description, index) => (
                 <p key={index} className="pt-4">
                   {description}
                 </p>
               ))}
+              <div
+                className={`w-full absolute bottom-0 h-10 bg-gradient-to-t from-white dark:from-gray-800 to-white/0 dark:to-gray-800/0 ${
+                  height > 250 ? (isViewMore ? "hidden" : "") : "hidden"
+                }`}
+              ></div>
+            </div>
+
+            <div
+              className={`${
+                height > 250 ? "inline-flex" : "hidden"
+              } justify-center`}
+            >
+              <div
+                onClick={() => setIsViewMore(!isViewMore)}
+                className="text-center text-cyan-700 dark:text-cyan-600 hover:opacity-80 hover:cursor-pointer hover:underline font-medium"
+              >
+                {!isViewMore ? "View More" : "View Less"}
+              </div>
             </div>
 
             <Accordion className="mt-8">
