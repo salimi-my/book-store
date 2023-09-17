@@ -13,6 +13,7 @@ import AuthorFilter from "@/Pages/Book/Partials/AuthorFilter";
 import MobileFilter from "@/Pages/Book/Partials/MobileFilter";
 import CategoryFilter from "@/Pages/Book/Partials/CategoryFilter";
 import PublisherFilter from "@/Pages/Book/Partials/PublisherFilter";
+import IndexBreadcrumb from "./Breadcrumb/IndexBreadcrumb";
 
 export default function Index({
   filters,
@@ -90,7 +91,8 @@ export default function Index({
         />
       </Head>
 
-      <div className="container max-w-6xl mx-auto my-20 px-4 xl:px-0">
+      <div className="container max-w-6xl mx-auto my-10 px-4 xl:px-0">
+        <IndexBreadcrumb />
         <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-center md:justify-between items-center pb-4">
           <p className="text-sm font-medium text-gray-900 dark:text-gray-300">
             Showing {books.from} to {books.to} of {books.total} results
