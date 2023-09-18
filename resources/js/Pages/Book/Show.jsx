@@ -5,8 +5,9 @@ import MainLayout from "@/Layouts/MainLayout";
 import BookDescription from "@/Components/BookDescription";
 import ShowBreadcrumb from "@/Pages/Book/Breadcrumb/ShowBreadcrumb";
 import ShareLink from "@/Components/ShareLink";
+import RelatedBooks from "@/Components/RelatedBooks";
 
-export default function Show({ book }) {
+export default function Show({ book, relatedBooks }) {
   const price = book.price.toLocaleString("en-MY", {
     style: "currency",
     currency: "MYR",
@@ -104,6 +105,7 @@ export default function Show({ book }) {
             <ShareLink title={book.title} slug={book.slug} />
           </div>
         </div>
+        <RelatedBooks books={relatedBooks} />
       </div>
     </MainLayout>
   );

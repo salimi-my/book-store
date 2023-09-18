@@ -19,9 +19,16 @@ class BookController extends Controller
 
         return inertia('Book/Index', [
             'filters' => $filters,
-            'categories' => Category::orderBy('name', 'asc')->get(),
-            'authors' => Book::select('author')->groupBy('author')->orderBy('author', 'asc')->get(),
-            'publishers' => Book::select('publisher')->groupBy('publisher')->orderBy('publisher', 'asc')->get(),
+            'categories' => Category::orderBy('name', 'asc')
+                ->get(),
+            'authors' => Book::select('author')
+                ->groupBy('author')
+                ->orderBy('author', 'asc')
+                ->get(),
+            'publishers' => Book::select('publisher')
+                ->groupBy('publisher')
+                ->orderBy('publisher', 'asc')
+                ->get(),
             'books' => Book::filter($filters)
                 ->paginate(12)
                 ->withQueryString()
@@ -50,7 +57,11 @@ class BookController extends Controller
     public function show(Book $book)
     {
         return inertia('Book/Show', [
-            'book' => $book
+            'book' => $book,
+            'relatedBooks' => Book::whereNot('id', '=', $book->id)
+                ->where('type', '=', $book->type)
+                ->inRandomOrder()->limit(10)
+                ->get()
         ]);
     }
 
