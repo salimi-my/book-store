@@ -9,8 +9,11 @@ export default function BookBanner() {
   return (
     <div className="w-full">
       <Swiper
+        loop={true}
         navigation={true}
-        pagination={true}
+        pagination={{
+          clickable: true,
+        }}
         modules={[Navigation, Pagination]}
         className="rounded-lg mb-5 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
       >
