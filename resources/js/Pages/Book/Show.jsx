@@ -4,6 +4,7 @@ import { Accordion, Button } from "flowbite-react";
 import MainLayout from "@/Layouts/MainLayout";
 import BookDescription from "@/Components/BookDescription";
 import ShowBreadcrumb from "@/Pages/Book/Breadcrumb/ShowBreadcrumb";
+import ShareLink from "@/Components/ShareLink";
 
 export default function Show({ book }) {
   const price = book.price.toLocaleString("en-MY", {
@@ -98,6 +99,9 @@ export default function Show({ book }) {
                 </Accordion.Content>
               </Accordion.Panel>
             </Accordion>
+
+            <p className="mt-6 font-medium">Share: </p>
+            <ShareLink title={book.title} slug={book.slug} />
           </div>
         </div>
       </div>
