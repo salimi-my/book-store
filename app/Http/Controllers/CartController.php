@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -27,7 +29,50 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bookId = $request->input('bookId');
+        $bookQuantity = $request->input('bookQuantity');
+
+        if ($request->user()) {
+            $cart = $request->user()->carts()->where('book_id', '=', $bookId)->where('checked_out', '=', false)->first();
+
+            if ($cart) {
+                $newQuantity = $cart->quantity + $bookQuantity;
+                $cart->update(['quantity' => $newQuantity]);
+            } else {
+                Book::find($bookId)->carts()->save(
+                    Cart::make(
+                        ['quantity' => $bookQuantity]
+                    )->userOwner()->associate($request->user())
+                );
+            }
+        } else {
+            if ($request->session()->has('carts')) {
+                $cartIds = $request->session()->get('carts');
+
+                $cart = Cart::whereIn('id', $cartIds)->where('book_id', '=', $bookId)->where('checked_out', '=', false)->first();
+
+                if ($cart) {
+                    $newQuantity = $cart->quantity + $bookQuantity;
+                    $cart->update(['quantity' => $newQuantity]);
+                } else {
+                    $cartId = Book::find($bookId)->carts()->create(['quantity' => $bookQuantity])->id;
+
+                    $request->session()->push('carts', $cartId);
+                    $request->session()->save();
+                }
+            } else {
+                $cartId = Book::find($bookId)->carts()->create(['quantity' => $bookQuantity])->id;
+
+                $request->session()->push('carts', $cartId);
+                $request->session()->save();
+            }
+        }
+
+        return redirect()->back();
+
+        // $request->session()->forget('carts');
+        // $request->session()->save();
+        // dd($request->session()->get('carts'));
     }
 
     /**

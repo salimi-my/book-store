@@ -36,7 +36,7 @@ export default function BookCard({ book }) {
             </p>
           )}
           <div className="mt-3">
-            <AddToCart bookId={book.id} quantity={1} />
+            <AddToCart id={book.id} quantity={1} />
           </div>
         </div>
       </div>
