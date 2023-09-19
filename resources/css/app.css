@@ -19,3 +19,9 @@
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: rgb(6, 182, 212);
 }
+
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

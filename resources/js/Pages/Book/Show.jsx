@@ -1,14 +1,30 @@
+import { useState } from "react";
 import { Head } from "@inertiajs/react";
 import { Accordion } from "flowbite-react";
 
 import MainLayout from "@/Layouts/MainLayout";
+import ShareLink from "@/Components/ShareLink";
+import AddToCart from "@/Components/AddToCart";
+import RelatedBooks from "@/Components/RelatedBooks";
+import QuantityInput from "@/Components/QuantityInput";
 import BookDescription from "@/Components/BookDescription";
 import ShowBreadcrumb from "@/Pages/Book/Breadcrumb/ShowBreadcrumb";
-import ShareLink from "@/Components/ShareLink";
-import RelatedBooks from "@/Components/RelatedBooks";
-import AddToCart from "@/Components/AddToCart";
 
 export default function Show({ book, relatedBooks }) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAdd = () => {
+    if (quantity < book.stocks) {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleMinus = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   const price = book.price.toLocaleString("en-MY", {
     style: "currency",
     currency: "MYR",
@@ -51,7 +67,7 @@ export default function Show({ book, relatedBooks }) {
               {price}
             </h2>
 
-            <div className="mt-5 font-medium">
+            <div className="mt-4 font-medium">
               <p>
                 Author: <span className="font-normal">{book.author}</span>
               </p>
@@ -72,10 +88,16 @@ export default function Show({ book, relatedBooks }) {
               )}
             </p>
 
-            <hr className="mt-8 border-gray-200 dark:border-gray-700" />
+            <QuantityInput
+              quantity={quantity}
+              handleAdd={handleAdd}
+              handleMinus={handleMinus}
+            />
+
+            <hr className="border-gray-200 dark:border-gray-700" />
 
             <div className="mt-8">
-              <AddToCart bookId={book.id} quantity={1} />
+              <AddToCart id={book.id} quantity={quantity} />
             </div>
 
             <hr className="mt-8 border-gray-200 dark:border-gray-700" />
