@@ -1,11 +1,12 @@
 import { Head } from "@inertiajs/react";
-import { Accordion, Button } from "flowbite-react";
+import { Accordion } from "flowbite-react";
 
 import MainLayout from "@/Layouts/MainLayout";
 import BookDescription from "@/Components/BookDescription";
 import ShowBreadcrumb from "@/Pages/Book/Breadcrumb/ShowBreadcrumb";
 import ShareLink from "@/Components/ShareLink";
 import RelatedBooks from "@/Components/RelatedBooks";
+import AddToCart from "@/Components/AddToCart";
 
 export default function Show({ book, relatedBooks }) {
   const price = book.price.toLocaleString("en-MY", {
@@ -73,7 +74,9 @@ export default function Show({ book, relatedBooks }) {
 
             <hr className="mt-8 border-gray-200 dark:border-gray-700" />
 
-            <Button className="mt-8 rounded-full">Add to Cart</Button>
+            <div className="mt-8">
+              <AddToCart bookId={book.id} quantity={1} />
+            </div>
 
             <hr className="mt-8 border-gray-200 dark:border-gray-700" />
 

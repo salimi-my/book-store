@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react";
-import { Button } from "flowbite-react";
+import AddToCart from "@/Components/AddToCart";
 
 export default function BookCard({ book }) {
   const price = book.price.toLocaleString("en-MY", {
@@ -35,16 +35,9 @@ export default function BookCard({ book }) {
               Out of Stock
             </p>
           )}
-          <Button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-            }}
-            className="mt-3 rounded-full"
-          >
-            Add to Cart
-          </Button>
+          <div className="mt-3">
+            <AddToCart bookId={book.id} quantity={1} />
+          </div>
         </div>
       </div>
     </Link>
