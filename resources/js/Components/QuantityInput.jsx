@@ -1,6 +1,11 @@
 import { Minus, Plus } from "lucide-react";
 
-export default function QuantityInput({ quantity, handleAdd, handleMinus }) {
+export default function QuantityInput({
+  quantity,
+  handleAdd,
+  handleMinus,
+  handleQuantityChange,
+}) {
   return (
     <div className="my-4 flex items-center space-x-4">
       <label htmlFor="quantity" className="font-medium">
@@ -18,8 +23,8 @@ export default function QuantityInput({ quantity, handleAdd, handleMinus }) {
           type="number"
           min={1}
           max={30}
-          readOnly
           value={quantity}
+          onChange={(e) => handleQuantityChange(e)}
           className="quantity-input block w-12 h-8 border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 text-sm font-medium text-center"
         />
         <button

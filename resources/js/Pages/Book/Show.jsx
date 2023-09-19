@@ -25,6 +25,16 @@ export default function Show({ book, relatedBooks }) {
     }
   };
 
+  const handleQuantityChange = (e) => {
+    if (e.target.value > book.stocks) {
+      setQuantity(book.stocks);
+    } else if (e.target.value < 1) {
+      setQuantity(1);
+    } else {
+      setQuantity(e.target.value);
+    }
+  };
+
   const price = book.price.toLocaleString("en-MY", {
     style: "currency",
     currency: "MYR",
@@ -92,6 +102,7 @@ export default function Show({ book, relatedBooks }) {
               quantity={quantity}
               handleAdd={handleAdd}
               handleMinus={handleMinus}
+              handleQuantityChange={handleQuantityChange}
             />
 
             <hr className="border-gray-200 dark:border-gray-700" />
