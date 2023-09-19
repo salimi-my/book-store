@@ -41,7 +41,7 @@ export default function MainNavbar({ user, filters }) {
         </Navbar.Collapse>
       </Navbar>
       <div className="w-full bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-2 sm:px-4">
-        <div className="mx-auto flex flex-wrap items-center justify-between container py-2 font-semibold text-sm uppercase">
+        <div className="mx-auto flex flex-wrap items-center justify-between container py-2 font-semibold text-sm">
           <Link
             href={route("book.index")}
             className="text-gray-900 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-500"
