@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Book::class, 'book_id')->constrained('books');
             $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained('books');
             $table->unsignedInteger('quantity');
-            $table->boolean('checked_out')->default(false);
+            $table->timestamp('checkout_at')->nullable();
             $table->softDeletes();
 
             $table->timestamps();
