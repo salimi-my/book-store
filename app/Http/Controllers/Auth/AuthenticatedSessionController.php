@@ -39,7 +39,7 @@ class AuthenticatedSessionController extends Controller
 
             foreach ($cartIds as $cartId) {
                 $sessionCart = Cart::find($cartId);
-                $userCart = $request->user()->carts()->where('book_id', '=', $sessionCart->book_id)->where('checked_out', '=', false)->first();
+                $userCart = $request->user()->carts()->where('book_id', '=', $sessionCart->book_id)->withoutCheckout()->first();
 
                 if ($userCart) {
                     $newQuantity = $userCart->quantity + $sessionCart->quantity;

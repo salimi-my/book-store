@@ -33,7 +33,7 @@ class CartController extends Controller
         $bookQuantity = $request->input('bookQuantity');
 
         if ($request->user()) {
-            $cart = $request->user()->carts()->where('book_id', '=', $bookId)->where('checked_out', '=', false)->first();
+            $cart = $request->user()->carts()->where('book_id', '=', $bookId)->withoutCheckout()->first();
 
             if ($cart) {
                 $newQuantity = $cart->quantity + $bookQuantity;
@@ -49,7 +49,7 @@ class CartController extends Controller
             if ($request->session()->has('carts')) {
                 $cartIds = $request->session()->get('carts');
 
-                $cart = Cart::whereIn('id', $cartIds)->where('book_id', '=', $bookId)->where('checked_out', '=', false)->first();
+                $cart = Cart::whereIn('id', $cartIds)->where('book_id', '=', $bookId)->withoutCheckout()->first();
 
                 if ($cart) {
                     $newQuantity = $cart->quantity + $bookQuantity;
