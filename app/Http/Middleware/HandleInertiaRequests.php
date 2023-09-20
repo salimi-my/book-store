@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -42,6 +43,18 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+            'carts' => function () use ($request) {
+                if ($request->user()) {
+                    return $request->user()->carts()->withoutCheckout()->with('bookOwner')->get();
+                } else {
+                    $cartIds = $request->session()->get('carts');
+                    if ($cartIds) {
+                        return Cart::whereIn('id', $cartIds)->withoutCheckout()->with('bookOwner')->get();
+                    } else {
+                        return [];
+                    }
+                }
+            }
         ]);
     }
 }

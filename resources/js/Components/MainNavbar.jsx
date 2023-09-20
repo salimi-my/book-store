@@ -3,10 +3,11 @@ import { LogIn, Search } from "lucide-react";
 import { Navbar, Button } from "flowbite-react";
 
 import SearchBar from "@/Components/SearchBar";
+import CartToggle from "@/Components/CartToggle";
 import UserDropdown from "@/Components/UserDropdown";
 import DarkModeToggle from "@/Components/DarkModeToggle";
 
-export default function MainNavbar({ user, filters }) {
+export default function MainNavbar({ user, carts, filters }) {
   return (
     <div className="sticky top-0 z-20">
       <Navbar className="border-b">
@@ -20,12 +21,13 @@ export default function MainNavbar({ user, filters }) {
             Book Store
           </span>
         </Navbar.Brand>
-        <div className="flex md:order-2">
-          <DarkModeToggle />
+        <div className="flex md:order-2 items-center">
           <Navbar.Toggle
             barIcon={Search}
-            className="mr-1 rounded-full w-11 justify-center"
+            className="rounded-full w-9 h-9 justify-center p-1.5"
           />
+          <DarkModeToggle />
+          <CartToggle carts={carts} />
           {user && <UserDropdown user={user} />}
           {!user && (
             <Link href={route("login")} className="flex items-center">
