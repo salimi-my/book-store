@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Cart;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,6 +32,25 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
+
+        // associate session cart to logged in user if any
+        if ($request->session()->has('carts')) {
+            $cartIds = $request->session()->pull('carts');
+
+            foreach ($cartIds as $cartId) {
+                $sessionCart = Cart::find($cartId);
+                $userCart = $request->user()->carts()->where('book_id', '=', $sessionCart->book_id)->where('checked_out', '=', false)->first();
+
+                if ($userCart) {
+                    $newQuantity = $userCart->quantity + $sessionCart->quantity;
+                    $userCart->update(['quantity' => $newQuantity]);
+
+                    $sessionCart->deleteOrFail();
+                } else {
+                    $sessionCart->userOwner()->associate($request->user())->save();
+                }
+            }
+        }
 
         $request->session()->regenerate();
 
