@@ -21,7 +21,7 @@ export default function CartDrawer({ carts }) {
         }`}
       >
         <div className="flex justify-between items-center">
-          <h5 className="inline-flex items-center text-lg font-semibold text-gray-600 dark:text-gray-400">
+          <h5 className="inline-flex items-center text-lg font-semibold text-gray-600 dark:text-gray-200">
             <ShoppingCart className="w-6 h-6 mr-2.5" />
             Carts{" "}
             <span className="ml-1">

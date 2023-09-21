@@ -15,14 +15,14 @@ export default function CartItem({ cart }) {
     <div className="flex items-center space-x-4 md:space-x-6">
       <Link
         href={route("book.show", cart.book_owner.slug)}
-        className="border p-1 rounded-md shrink-0 transition-transform ease-in-out hover:scale-105"
+        className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-1 rounded-md shrink-0 transition-transform ease-in-out hover:scale-105"
       >
         <img
           src={`/book-images/${cart.book_owner.image}`}
           className="w-28 h-40 object-cover rounded-md"
         />
       </Link>
-      <div className="flex flex-col">
+      <div className="flex flex-col text-gray-900 dark:text-white">
         <p className="font-medium">{price}</p>
         <Link
           href={route("book.show", cart.book_owner.slug)}
