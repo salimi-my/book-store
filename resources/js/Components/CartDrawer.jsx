@@ -16,7 +16,7 @@ export default function CartDrawer({ carts }) {
   return (
     <>
       <div
-        className={`fixed top-0 right-0 z-40 h-screen p-4 md:p-8 overflow-y-auto transition-transform bg-white w-80 md:w-[420px] dark:bg-gray-800 ${
+        className={`fixed top-0 right-0 z-40 h-screen p-4 md:p-8 overflow-y-auto transition-transform ease-in-out duration-500 bg-white w-80 md:w-[420px] dark:bg-gray-800 ${
           drawer.isOpen ? "transform-none" : "translate-x-full"
         }`}
       >
