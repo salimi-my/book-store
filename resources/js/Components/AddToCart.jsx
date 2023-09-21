@@ -14,6 +14,7 @@ export default function AddToCart({ id, quantity }) {
       { bookId: id, bookQuantity: quantity },
       {
         preserveScroll: true,
+        preserveState: false,
         onStart: () => {
           setIsDisabled(true);
         },

@@ -94,9 +94,17 @@ class CartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Cart $cart)
     {
-        //
+        $bookQuantity = $request->input('bookQuantity');
+
+        if ($bookQuantity > 0) {
+            $cart->update(['quantity' => $bookQuantity]);
+        } else {
+            $cart->deleteOrFail();
+        }
+
+        return redirect()->back();
     }
 
     /**

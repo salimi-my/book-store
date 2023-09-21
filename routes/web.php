@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::resource('book', BookController::class)->only(['index', 'show']);
 
-Route::resource('cart', CartController::class)->only(['store']);
+Route::resource('cart', CartController::class)->only(['store', 'update']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

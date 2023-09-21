@@ -14,7 +14,7 @@ export default function MainLayout({ children, filters }) {
         {children}
       </main>
       <Footer />
-      <CartDrawer />
+      <CartDrawer carts={carts} />
     </div>
   );
 }

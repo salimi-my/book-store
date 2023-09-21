@@ -14,7 +14,15 @@ export default function CartToggle({ carts }) {
       >
         <ShoppingCart />
         <div className="absolute flex justify-center items-center -top-1 -right-1 w-[1.3rem] h-[1.3rem] rounded-full bg-cyan-700 text-white text-xs">
-          <p className="leading-none">{carts.length}</p>
+          <p className="leading-none">
+            {carts
+              .map((cart) => cart.quantity)
+              .reduce(
+                (totalQuantity, currentQuantity) =>
+                  totalQuantity + currentQuantity,
+                0
+              )}
+          </p>
         </div>
       </button>
     </>

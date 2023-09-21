@@ -1,9 +1,17 @@
+import { Button } from "flowbite-react";
+import { router } from "@inertiajs/react";
 import { ShoppingCart, X } from "lucide-react";
 
+import CartItem from "@/Components/CartItem";
 import { useCartDrawer } from "@/Hooks/useCartDrawer";
 
-export default function CartDrawer() {
+export default function CartDrawer({ carts }) {
   const drawer = useCartDrawer();
+
+  const continueBrowsing = () => {
+    drawer.onClose();
+    router.get(route("book.index"));
+  };
 
   return (
     <>
@@ -15,7 +23,18 @@ export default function CartDrawer() {
         <div className="flex justify-between items-center">
           <h5 className="inline-flex items-center text-lg font-semibold text-gray-600 dark:text-gray-400">
             <ShoppingCart className="w-6 h-6 mr-2.5" />
-            Carts
+            Carts{" "}
+            <span className="ml-1">
+              (
+              {carts
+                .map((cart) => cart.quantity)
+                .reduce(
+                  (totalQuantity, currentQuantity) =>
+                    totalQuantity + currentQuantity,
+                  0
+                )}
+              )
+            </span>
           </h5>
           <button
             onClick={drawer.onClose}
@@ -27,14 +46,22 @@ export default function CartDrawer() {
           </button>
         </div>
 
-        <div className="flex flex-col space-y-4 pt-5">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis,
-            tempore inventore alias tenetur id, ducimus unde, aliquid eveniet
-            numquam fuga dolores necessitatibus error mollitia illum praesentium
-            expedita neque. Laborum, illum?
-          </p>
-        </div>
+        {carts.length > 0 && (
+          <div className="flex flex-col space-y-4 md:space-y-8 pt-5 md:pt-10">
+            {carts.map((cart) => (
+              <CartItem key={cart.id} cart={cart} />
+            ))}
+          </div>
+        )}
+
+        {carts.length < 1 && (
+          <div className="flex flex-col space-y-4 pt-5 md:pt-10">
+            <p className="font-medium text-gray-900 dark:text-white">
+              Your cart is currently empty.
+            </p>
+            <Button onClick={continueBrowsing}>Continue browsing</Button>
+          </div>
+        )}
       </div>
 
       <div
