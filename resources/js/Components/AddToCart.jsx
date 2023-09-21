@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Button } from "flowbite-react";
 import { router } from "@inertiajs/react";
 
+import { useCartDrawer } from "@/Hooks/useCartDrawer";
+
 export default function AddToCart({ id, quantity }) {
+  const drawer = useCartDrawer();
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleClick = (e) => {
@@ -23,6 +26,8 @@ export default function AddToCart({ id, quantity }) {
         },
       }
     );
+
+    drawer.onOpen();
   };
 
   return (
