@@ -36,14 +36,14 @@ export default function MobileFilter({
         }`}
       >
         <div className="flex justify-between items-center">
-          <h5 className="inline-flex items-center text-base font-semibold text-gray-500 dark:text-gray-400">
-            <SlidersHorizontal className="w-4 h-4 mr-2.5" />
+          <h5 className="inline-flex items-center text-lg font-semibold text-gray-500 dark:text-gray-400">
+            <SlidersHorizontal className="w-6 h-6 mr-2.5" />
             Filters
           </h5>
           <button
             onClick={() => setIsOpen(false)}
             type="button"
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white -mr-2"
           >
             <X />
             <span className="sr-only">Close menu</span>
