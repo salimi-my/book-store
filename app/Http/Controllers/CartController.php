@@ -106,7 +106,7 @@ class CartController extends Controller
                 unset($cartIds[$key]);
 
                 if (!empty($cartIds)) {
-                    $request->session()->push('carts', $cartIds);
+                    $request->session()->put('carts', $cartIds);
                     $request->session()->save();
                 }
             }
