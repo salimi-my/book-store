@@ -101,6 +101,15 @@ class CartController extends Controller
         if ($bookQuantity > 0) {
             $cart->update(['quantity' => $bookQuantity]);
         } else {
+            $cartIds = $request->session()->pull('carts');
+            if (($key = array_search($cart->id, $cartIds)) !== false) {
+                unset($cartIds[$key]);
+
+                if (!empty($cartIds)) {
+                    $request->session()->push('carts', $cartIds);
+                    $request->session()->save();
+                }
+            }
             $cart->deleteOrFail();
         }
 
