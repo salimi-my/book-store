@@ -119,8 +119,19 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Cart $cart)
     {
-        //
+        $cartIds = session('carts');
+        if (($key = array_search($cart->id, $cartIds)) !== false) {
+            unset($cartIds[$key]);
+
+            if (!empty($cartIds)) {
+                session(['carts' => $cartIds]);
+            }
+        }
+
+        $cart->deleteOrFail();
+
+        return redirect()->back();
     }
 }
