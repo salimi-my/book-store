@@ -1,6 +1,6 @@
 import { debounce } from "lodash";
 import { Head, router } from "@inertiajs/react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import BookCard from "@/Components/BookCard";
 import MainLayout from "@/Layouts/MainLayout";
@@ -23,6 +23,7 @@ export default function Index({
   publishers,
   books,
 }) {
+  const isInitialMount = useRef(true);
   const [bookFilter, setBookFilter] = useState(filters);
 
   const handleCheckbox = (e, filterType) => {
@@ -79,7 +80,11 @@ export default function Index({
   );
 
   useEffect(() => {
-    submitFilter(bookFilter);
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      submitFilter(bookFilter);
+    }
   }, [bookFilter]);
 
   return (
