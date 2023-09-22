@@ -31,7 +31,7 @@ export default function Register() {
     <MainLayout>
       <Head title="Sign Up — Book Store" />
 
-      <div className="min-h-[calc(100vh_-_64px_-_534px)] flex flex-col sm:justify-center items-center py-20 px-4 md:px-0 bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-[calc(100vh_-_100px_-_534px)] flex flex-col sm:justify-center items-center py-20 px-4 md:px-0 bg-gray-50 dark:bg-gray-900">
         <Link
           href="/"
           className="flex items-center mb-6 text-2xl font-bold text-cyan-700 dark:text-white"
