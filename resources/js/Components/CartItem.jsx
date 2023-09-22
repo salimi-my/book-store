@@ -16,7 +16,7 @@ export default function CartItem({ cart }) {
   );
 
   return (
-    <div className="flex items-center space-x-4 md:space-x-6">
+    <div className="flex items-center space-x-3 md:space-x-6">
       <Link
         href={route("book.show", cart.book_owner.slug)}
         className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-1 rounded-md shrink-0 transition-transform ease-in-out hover:scale-105"

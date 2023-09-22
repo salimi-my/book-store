@@ -3,6 +3,7 @@ import { router } from "@inertiajs/react";
 import { ShoppingCart, X } from "lucide-react";
 
 import CartItem from "@/Components/CartItem";
+import CartTotal from "@/Components/CartTotal";
 import { useCartDrawer } from "@/Hooks/useCartDrawer";
 
 export default function CartDrawer({ carts }) {
@@ -16,11 +17,11 @@ export default function CartDrawer({ carts }) {
   return (
     <>
       <div
-        className={`fixed top-0 right-0 z-40 h-screen p-4 md:p-8 overflow-y-auto transition-transform ease-in-out duration-500 bg-white w-80 md:w-[420px] dark:bg-gray-800 ${
+        className={`fixed top-0 right-0 z-40 h-screen overflow-y-auto transition-transform ease-in-out duration-500 bg-white w-80 md:w-[420px] dark:bg-gray-800 ${
           drawer.isOpen ? "transform-none" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center">
+        <div className="w-80 md:w-[420px] fixed flex justify-between items-center border-b px-4 md:px-8 py-4 bg-white dark:bg-gray-800">
           <h5 className="inline-flex items-center text-lg font-semibold text-gray-600 dark:text-gray-200">
             <ShoppingCart className="w-6 h-6 mr-2.5" />
             Carts{" "}
@@ -47,15 +48,17 @@ export default function CartDrawer({ carts }) {
         </div>
 
         {carts.length > 0 && (
-          <div className="flex flex-col space-y-4 md:space-y-8 pt-5 md:pt-10">
+          <div className="flex flex-col space-y-4 md:space-y-8 px-4 md:px-8 pb-5 md:pb-10 pt-[81px] md:pt-[97px] min-h-[calc(100vh_-_203px)]">
             {carts.map((cart) => (
               <CartItem key={cart.id} cart={cart} />
             ))}
           </div>
         )}
 
+        {carts.length > 0 && <CartTotal carts={carts} />}
+
         {carts.length < 1 && (
-          <div className="flex flex-col space-y-4 pt-5 md:pt-10">
+          <div className="flex flex-col space-y-4 px-4 md:px-8 pb-5 md:pb-10 pt-[81px] md:pt-[97px]">
             <p className="font-medium text-gray-900 dark:text-white">
               Your cart is currently empty.
             </p>

@@ -13,7 +13,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return inertia('Cart/Index', []);
     }
 
     /**
@@ -69,10 +69,6 @@ class CartController extends Controller
         }
 
         return redirect()->back();
-
-        // $request->session()->forget('carts');
-        // $request->session()->save();
-        // dd($request->session()->get('carts'));
     }
 
     /**
