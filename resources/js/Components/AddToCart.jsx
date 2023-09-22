@@ -23,11 +23,10 @@ export default function AddToCart({ id, quantity }) {
         },
         onFinish: () => {
           setIsDisabled(false);
+          drawer.onOpen();
         },
       }
     );
-
-    drawer.onOpen();
   };
 
   return (
