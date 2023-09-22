@@ -31,12 +31,12 @@ export default function MobileFilter({
       </button>
 
       <div
-        className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-80 dark:bg-gray-800 ${
+        className={`fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform ease-in-out duration-500 bg-white w-80 dark:bg-gray-800 ${
           isOpen ? "transform-none" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center">
-          <h5 className="inline-flex items-center text-lg font-semibold text-gray-500 dark:text-gray-400">
+        <div className="w-80 z-10 fixed flex justify-between items-center border-b border-gray-200 dark:border-gray-700 px-4 py-4 bg-white dark:bg-gray-800">
+          <h5 className="inline-flex items-center text-lg font-semibold text-gray-600 dark:text-gray-200">
             <SlidersHorizontal className="w-6 h-6 mr-2.5" />
             Filters
           </h5>
@@ -50,7 +50,7 @@ export default function MobileFilter({
           </button>
         </div>
 
-        <div className="flex flex-col space-y-4 pt-5">
+        <div className="flex flex-col space-y-4 px-4 pb-5 pt-[81px]">
           <ClearFilter bookFilter={bookFilter} />
           <TypeFilter
             handleCheckbox={handleCheckbox}
