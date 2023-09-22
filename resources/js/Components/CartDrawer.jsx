@@ -21,7 +21,7 @@ export default function CartDrawer({ carts }) {
           drawer.isOpen ? "transform-none" : "translate-x-full"
         }`}
       >
-        <div className="w-80 md:w-[420px] fixed flex justify-between items-center border-b px-4 md:px-8 py-4 bg-white dark:bg-gray-800">
+        <div className="w-80 md:w-[420px] fixed flex justify-between items-center border-b border-gray-200 dark:border-gray-700 px-4 md:px-8 py-4 bg-white dark:bg-gray-800">
           <h5 className="inline-flex items-center text-lg font-semibold text-gray-600 dark:text-gray-200">
             <ShoppingCart className="w-6 h-6 mr-2.5" />
             Carts{" "}
