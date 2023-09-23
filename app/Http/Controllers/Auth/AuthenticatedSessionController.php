@@ -39,15 +39,18 @@ class AuthenticatedSessionController extends Controller
 
             foreach ($cartIds as $cartId) {
                 $sessionCart = Cart::where('id', '=', $cartId)->first();
-                $userCart = $request->user()->carts()->where('book_id', '=', $sessionCart->book_id)->withoutCheckout()->first();
 
-                if ($userCart) {
-                    $newQuantity = $userCart->quantity + $sessionCart->quantity;
-                    $userCart->update(['quantity' => $newQuantity]);
+                if ($sessionCart) {
+                    $userCart = $request->user()->carts()->where('book_id', '=', $sessionCart->book_id)->withoutCheckout()->first();
 
-                    $sessionCart->deleteOrFail();
-                } else {
-                    $sessionCart->userOwner()->associate($request->user())->save();
+                    if ($userCart) {
+                        $newQuantity = $userCart->quantity + $sessionCart->quantity;
+                        $userCart->update(['quantity' => $newQuantity]);
+
+                        $sessionCart->deleteOrFail();
+                    } else {
+                        $sessionCart->userOwner()->associate($request->user())->save();
+                    }
                 }
             }
         }
