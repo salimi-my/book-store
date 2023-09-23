@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class AddressController extends Controller
 {
     /**
+     * Authorizing resource controller.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Address::class, 'address');
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()

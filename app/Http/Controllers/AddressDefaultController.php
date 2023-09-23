@@ -10,6 +10,8 @@ class AddressDefaultController extends Controller
 {
     public function __invoke(Address $address)
     {
+        $this->authorize('update', $address);
+
         // Set address as default
         $address->update(['default' => 'yes']);
 
