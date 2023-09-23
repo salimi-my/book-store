@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -117,12 +118,14 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        $cartIds = session('carts');
-        if (($key = array_search($cart->id, $cartIds)) !== false) {
-            unset($cartIds[$key]);
+        if (!Auth::user()) {
+            $cartIds = session('carts');
+            if (($key = array_search($cart->id, $cartIds)) !== false) {
+                unset($cartIds[$key]);
 
-            if (!empty($cartIds)) {
-                session(['carts' => $cartIds]);
+                if (!empty($cartIds)) {
+                    session(['carts' => $cartIds]);
+                }
             }
         }
 
