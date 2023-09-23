@@ -19,6 +19,11 @@ export default function CartTotal({ carts }) {
     router.get(route("cart.index"));
   };
 
+  const viewCheckout = () => {
+    drawer.onClose();
+    router.get(route("checkout.index"));
+  };
+
   return (
     <div className="flex flex-col border-t border-gray-200 dark:border-gray-700 px-4 md:px-8 py-4">
       <p className="font-medium text-gray-900 dark:text-white">Total</p>
@@ -36,7 +41,7 @@ export default function CartTotal({ carts }) {
           View Cart
         </button>
         <button
-          type="button"
+          onClick={viewCheckout}
           className="w-full text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-800 focus:ring-2 focus:outline-none focus:ring-cyan-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-cyan-500 dark:text-cyan-500 dark:hover:text-white dark:hover:bg-cyan-500 dark:focus:ring-cyan-800"
         >
           Check Out

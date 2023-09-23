@@ -55,7 +55,10 @@ export default function Index() {
                   Tax included. Shipping calculated at checkout.
                 </p>
                 <div className="flex items-center py-3">
-                  <Link className="w-full text-white bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+                  <Link
+                    href={route("checkout.index")}
+                    className="w-full text-white bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+                  >
                     Check Out
                   </Link>
                 </div>
