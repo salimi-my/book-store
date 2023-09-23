@@ -35,8 +35,10 @@ export default function Index() {
 
         {carts.length > 0 && (
           <div className="grid lg:grid-cols-6 gap-6">
-            <div className="lg:col-span-4 border dark:border-gray-700 rounded-lg">
-              <CartTable carts={carts} />
+            <div className="lg:col-span-4">
+              <div className="border dark:border-gray-700 rounded-lg">
+                <CartTable carts={carts} />
+              </div>
             </div>
             <div className="lg:col-span-2">
               <div className="flex flex-col border dark:border-gray-700 rounded-lg py-4 px-6 bg-white dark:bg-gray-800">
