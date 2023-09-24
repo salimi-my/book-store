@@ -9,18 +9,16 @@ import IndexBreadcrumb from "@/Pages/Checkout/Breadcrumb/IndexBreadcrumb";
 export default function Index({ addresses, countries }) {
   const { auth, carts } = usePage().props;
 
-  const { data, setData, setDefaults, post, processing, errors, reset } =
-    useForm({
-      address_id: addresses[0].default === "yes" ? "0" : "New Address",
-      name: addresses[0].default === "yes" ? addresses[0].name : "",
-      phone: addresses[0].default === "yes" ? addresses[0].phone : "",
-      address: addresses[0].default === "yes" ? addresses[0].address : "",
-      city: addresses[0].default === "yes" ? addresses[0].city : "",
-      postal_code:
-        addresses[0].default === "yes" ? addresses[0].postal_code : "",
-      state: addresses[0].default === "yes" ? addresses[0].state : "",
-      country: addresses[0].default === "yes" ? addresses[0].country : "",
-    });
+  const { data, setData, post, processing, errors } = useForm({
+    address_id: addresses[0].default === "yes" ? "0" : "New Address",
+    name: addresses[0].default === "yes" ? addresses[0].name : "",
+    phone: addresses[0].default === "yes" ? addresses[0].phone : "",
+    address: addresses[0].default === "yes" ? addresses[0].address : "",
+    city: addresses[0].default === "yes" ? addresses[0].city : "",
+    postal_code: addresses[0].default === "yes" ? addresses[0].postal_code : "",
+    state: addresses[0].default === "yes" ? addresses[0].state : "",
+    country: addresses[0].default === "yes" ? addresses[0].country : "",
+  });
 
   const handleAddressChange = (e) => {
     if (e.target.value === "New Address") {
@@ -68,6 +66,14 @@ export default function Index({ addresses, countries }) {
     }
   };
 
+  const submit = (e) => {
+    e.preventDefault();
+
+    post(route("order.store"), {
+      preserveScroll: true,
+    });
+  };
+
   return (
     <>
       <Head>
@@ -77,9 +83,10 @@ export default function Index({ addresses, countries }) {
           content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
         />
       </Head>
-      <div className="grid grid-cols-2 min-h-screen">
-        <div className="bg-white dark:bg-gray-900">
-          <div className="max-w-xl ml-auto py-16 px-10">
+
+      <div className="grid lg:grid-cols-2 min-h-screen">
+        <div className="bg-white dark:bg-gray-900 order-2 lg:order-1">
+          <div className="max-w-xl mx-auto lg:mx-0 lg:ml-auto py-16 px-10">
             <div className="flex flex-col">
               <h1 className="font-medium text-xl text-gray-900 dark:text-white">
                 Checkout
@@ -100,7 +107,7 @@ export default function Index({ addresses, countries }) {
                 </div>
               </div>
 
-              <form onSubmit={() => {}} className="space-y-4">
+              <form onSubmit={submit} className="space-y-4">
                 <h2 className="font-medium pt-8 text-gray-900 dark:text-white">
                   Collection Method
                 </h2>
@@ -366,8 +373,11 @@ export default function Index({ addresses, countries }) {
             </div>
           </div>
         </div>
-        <div className="bg-slate-50 dark:bg-gray-800">
-          <div className="max-w-xl mr-auto py-16 px-10">
+        <div className="bg-slate-50 dark:bg-gray-800 lg:order-2">
+          <div className="max-w-xl mx-auto lg:mx-0 lg:mr-auto py-16 px-10">
+            <h1 className="flex lg:hidden font-medium text-xl text-gray-900 dark:text-white mb-6">
+              Order Summary
+            </h1>
             <CheckoutTotal carts={carts} />
           </div>
         </div>
