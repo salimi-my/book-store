@@ -27,7 +27,7 @@ export default function CheckoutTotal({ carts }) {
   });
 
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4 text-gray-900 dark:text-white">
       {carts.map((cart) => (
         <CheckoutItem key={cart.id} cart={cart} />
       ))}

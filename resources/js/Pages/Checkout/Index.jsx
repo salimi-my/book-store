@@ -3,8 +3,8 @@ import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import { Button, Label, Radio, Select, TextInput } from "flowbite-react";
 
 import InputError from "@/Components/InputError";
+import CheckoutTotal from "@/Pages/Checkout/Partials/CheckoutTotal";
 import IndexBreadcrumb from "@/Pages/Checkout/Breadcrumb/IndexBreadcrumb";
-import CheckoutTotal from "./Partials/CheckoutTotal";
 
 export default function Index({ addresses, countries }) {
   const { auth, carts } = usePage().props;
@@ -78,13 +78,17 @@ export default function Index({ addresses, countries }) {
         />
       </Head>
       <div className="grid grid-cols-2 min-h-screen">
-        <div className="bg-white">
+        <div className="bg-white dark:bg-gray-900">
           <div className="max-w-xl ml-auto py-16 px-10">
             <div className="flex flex-col">
-              <h1 className="font-medium text-xl">Checkout</h1>
+              <h1 className="font-medium text-xl text-gray-900 dark:text-white">
+                Checkout
+              </h1>
               <IndexBreadcrumb />
-              <h2 className="font-medium pt-3">Account Information</h2>
-              <div className="flex items-center space-x-4 pt-3">
+              <h2 className="font-medium pt-3 text-gray-900 dark:text-white">
+                Account Information
+              </h2>
+              <div className="flex items-center space-x-4 pt-3 text-gray-900 dark:text-white">
                 <img
                   className="w-16 h-16 rounded-full shadow-sm object-cover"
                   src={`${auth.user.avatar ? auth.user.src : "/avatar.svg"}`}
@@ -97,7 +101,9 @@ export default function Index({ addresses, countries }) {
               </div>
 
               <form onSubmit={() => {}} className="space-y-4">
-                <h2 className="font-medium pt-8">Collection Method</h2>
+                <h2 className="font-medium pt-8 text-gray-900 dark:text-white">
+                  Collection Method
+                </h2>
                 <div className="flex items-center gap-3 border bg-gray-50 border-gray-300 dark:border-gray-600 dark:bg-gray-700 p-3 rounded-lg">
                   <Radio
                     defaultChecked
@@ -106,14 +112,16 @@ export default function Index({ addresses, countries }) {
                     value="Shipping"
                   />
                   <Label htmlFor="shipping">
-                    <div className="flex items-center gap-2 text-gray-500 font-normal">
+                    <div className="flex items-center gap-2 text-gray-500 dark:text-gray-100 font-normal">
                       <Truck />
                       Shipping
                     </div>
                   </Label>
                 </div>
 
-                <h2 className="font-medium pt-4">Shipping Address</h2>
+                <h2 className="font-medium pt-4 text-gray-900 dark:text-white">
+                  Shipping Address
+                </h2>
                 <div>
                   <Select
                     required
@@ -324,7 +332,9 @@ export default function Index({ addresses, countries }) {
                   </div>
                 </div>
 
-                <h2 className="font-medium pt-4">Payment Method</h2>
+                <h2 className="font-medium pt-4 text-gray-900 dark:text-white">
+                  Payment Method
+                </h2>
                 <div className="flex items-center gap-3 border bg-gray-50 border-gray-300 dark:border-gray-600 dark:bg-gray-700 p-3 rounded-lg">
                   <Radio
                     defaultChecked
@@ -333,7 +343,7 @@ export default function Index({ addresses, countries }) {
                     value="Online Banking (FPX)"
                   />
                   <Label htmlFor="fpx">
-                    <div className="flex items-center gap-2 text-gray-500 font-normal">
+                    <div className="flex items-center gap-2 text-gray-500 dark:text-gray-100 font-normal">
                       <Landmark />
                       Online Banking (FPX)
                     </div>
@@ -356,7 +366,7 @@ export default function Index({ addresses, countries }) {
             </div>
           </div>
         </div>
-        <div className="bg-slate-50">
+        <div className="bg-slate-50 dark:bg-gray-800">
           <div className="max-w-xl mr-auto py-16 px-10">
             <CheckoutTotal carts={carts} />
           </div>
