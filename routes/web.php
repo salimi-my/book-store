@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('address', AddressController::class)->except(['create', 'show', 'edit']);
+    Route::resource('address', AddressController::class)->only(['index', 'store', 'update', 'destroy']);
 
     Route::name('address.default')->put('address/{address}/default', AddressDefaultController::class);
 
