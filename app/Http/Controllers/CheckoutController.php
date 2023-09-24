@@ -14,7 +14,7 @@ class CheckoutController extends Controller
     public function index()
     {
         return inertia('Checkout/Index', [
-            'addresses' => Auth::user()->addresses()->get(),
+            'addresses' => Auth::user()->addresses()->orderBy('default', 'asc')->get(),
             'countries' => Country::all()
         ]);
     }
