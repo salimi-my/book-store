@@ -26,6 +26,16 @@ class Book extends Model
         return $this->hasMany(Cart::class, 'book_id');
     }
 
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class, 'book_id');
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function scopeFilter(Builder $query, array $filters): Builder
     {
         return $query->when(
@@ -71,11 +81,5 @@ class Book extends Model
                 !in_array($value, $this->sortable) ? $query : $query->orderBy($sortArr[0], $sortArr[1]);
             }
         );
-    }
-
-
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
     }
 }
