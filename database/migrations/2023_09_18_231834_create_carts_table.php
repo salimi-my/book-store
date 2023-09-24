@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignIdFor(Book::class, 'book_id')->constrained('books');
-            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained('books');
+            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained('users');
             $table->unsignedInteger('quantity');
             $table->timestamp('checkout_at')->nullable();
             $table->softDeletes();
