@@ -11,25 +11,28 @@ export default function Index({ addresses, countries }) {
 
   const { data, setData, post, processing, errors } = useForm({
     address_id: addresses[0].default === "yes" ? "0" : "New Address",
-    name: addresses[0].default === "yes" ? addresses[0].name : "",
-    phone: addresses[0].default === "yes" ? addresses[0].phone : "",
-    address: addresses[0].default === "yes" ? addresses[0].address : "",
-    city: addresses[0].default === "yes" ? addresses[0].city : "",
-    postal_code: addresses[0].default === "yes" ? addresses[0].postal_code : "",
-    state: addresses[0].default === "yes" ? addresses[0].state : "",
-    country: addresses[0].default === "yes" ? addresses[0].country : "",
+    shipping_name: addresses[0].default === "yes" ? addresses[0].name : "",
+    shipping_phone: addresses[0].default === "yes" ? addresses[0].phone : "",
+    shipping_address:
+      addresses[0].default === "yes" ? addresses[0].address : "",
+    shipping_city: addresses[0].default === "yes" ? addresses[0].city : "",
+    shipping_postal_code:
+      addresses[0].default === "yes" ? addresses[0].postal_code : "",
+    shipping_state: addresses[0].default === "yes" ? addresses[0].state : "",
+    shipping_country:
+      addresses[0].default === "yes" ? addresses[0].country : "",
   });
 
   const handleAddressChange = (e) => {
     if (e.target.value === "New Address") {
       setData((data) => ({ ...data, address_id: e.target.value }));
-      setData((data) => ({ ...data, name: "" }));
-      setData((data) => ({ ...data, phone: "" }));
-      setData((data) => ({ ...data, address: "" }));
-      setData((data) => ({ ...data, city: "" }));
-      setData((data) => ({ ...data, postal_code: "" }));
-      setData((data) => ({ ...data, state: "" }));
-      setData((data) => ({ ...data, country: "Select country" }));
+      setData((data) => ({ ...data, shipping_name: "" }));
+      setData((data) => ({ ...data, shipping_phone: "" }));
+      setData((data) => ({ ...data, shipping_address: "" }));
+      setData((data) => ({ ...data, shipping_city: "" }));
+      setData((data) => ({ ...data, shipping_postal_code: "" }));
+      setData((data) => ({ ...data, shipping_state: "" }));
+      setData((data) => ({ ...data, shipping_country: "Select country" }));
     } else {
       setData((data) => ({
         ...data,
@@ -37,31 +40,31 @@ export default function Index({ addresses, countries }) {
       }));
       setData((data) => ({
         ...data,
-        name: addresses[e.target.value].name,
+        shipping_name: addresses[e.target.value].name,
       }));
       setData((data) => ({
         ...data,
-        phone: addresses[e.target.value].phone,
+        shipping_phone: addresses[e.target.value].phone,
       }));
       setData((data) => ({
         ...data,
-        address: addresses[e.target.value].address,
+        shipping_address: addresses[e.target.value].address,
       }));
       setData((data) => ({
         ...data,
-        city: addresses[e.target.value].city,
+        shipping_city: addresses[e.target.value].city,
       }));
       setData((data) => ({
         ...data,
-        postal_code: addresses[e.target.value].postal_code,
+        shipping_postal_code: addresses[e.target.value].postal_code,
       }));
       setData((data) => ({
         ...data,
-        state: addresses[e.target.value].state,
+        shipping_state: addresses[e.target.value].state,
       }));
       setData((data) => ({
         ...data,
-        country: addresses[e.target.value].country,
+        shipping_country: addresses[e.target.value].country,
       }));
     }
   };
@@ -157,12 +160,12 @@ export default function Index({ addresses, countries }) {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name" value="Full Name" />
+                    <Label htmlFor="shipping_name" value="Full Name" />
                     <TextInput
                       required
-                      id="name"
+                      id="shipping_name"
                       className="mt-1 block w-full"
-                      value={data.name}
+                      value={data.shipping_name}
                       onChange={(e) => {
                         if (data.address_id !== "New Address") {
                           setData((data) => ({
@@ -172,20 +175,23 @@ export default function Index({ addresses, countries }) {
                         }
                         setData((data) => ({
                           ...data,
-                          name: e.target.value,
+                          shipping_name: e.target.value,
                         }));
                       }}
                       placeholder="Enter your name..."
                     />
-                    <InputError message={errors.name} className="-mb-4" />
+                    <InputError
+                      message={errors.shipping_name}
+                      className="-mb-4"
+                    />
                   </div>
                   <div>
-                    <Label htmlFor="phone" value="Phone Number" />
+                    <Label htmlFor="shipping_phone" value="Phone Number" />
                     <TextInput
                       required
-                      id="phone"
-                      name="phone"
-                      value={data.phone}
+                      id="shipping_phone"
+                      name="shipping_phone"
+                      value={data.shipping_phone}
                       className="mt-1 block w-full"
                       placeholder="Enter your phone number..."
                       onChange={(e) => {
@@ -197,21 +203,24 @@ export default function Index({ addresses, countries }) {
                         }
                         setData((data) => ({
                           ...data,
-                          phone: e.target.value,
+                          shipping_phone: e.target.value,
                         }));
                       }}
                     />
-                    <InputError message={errors.phone} className="-mb-4" />
+                    <InputError
+                      message={errors.shipping_phone}
+                      className="-mb-4"
+                    />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="address" value="Address" />
+                  <Label htmlFor="shipping_address" value="Address" />
                   <TextInput
                     required
-                    id="address"
-                    name="address"
-                    value={data.address}
+                    id="shipping_address"
+                    name="shipping_address"
+                    value={data.shipping_address}
                     className="mt-1 block w-full"
                     placeholder="Enter your address..."
                     onChange={(e) => {
@@ -223,21 +232,24 @@ export default function Index({ addresses, countries }) {
                       }
                       setData((data) => ({
                         ...data,
-                        address: e.target.value,
+                        shipping_address: e.target.value,
                       }));
                     }}
                   />
-                  <InputError message={errors.address} className="-mb-4" />
+                  <InputError
+                    message={errors.shipping_address}
+                    className="-mb-4"
+                  />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="city" value="City" />
+                    <Label htmlFor="shipping_city" value="City" />
                     <TextInput
                       required
-                      id="city"
+                      id="shipping_city"
                       className="mt-1 block w-full"
-                      value={data.city}
+                      value={data.shipping_city}
                       placeholder="Enter your city..."
                       onChange={(e) => {
                         if (data.address_id !== "New Address") {
@@ -248,19 +260,22 @@ export default function Index({ addresses, countries }) {
                         }
                         setData((data) => ({
                           ...data,
-                          city: e.target.value,
+                          shipping_city: e.target.value,
                         }));
                       }}
                     />
-                    <InputError message={errors.city} className="-mb-4" />
+                    <InputError
+                      message={errors.shipping_city}
+                      className="-mb-4"
+                    />
                   </div>
                   <div>
-                    <Label htmlFor="postal_code" value="Postal Code" />
+                    <Label htmlFor="shipping_postal_code" value="Postal Code" />
                     <TextInput
                       required
-                      id="postal_code"
-                      name="postal_code"
-                      value={data.postal_code}
+                      id="shipping_postal_code"
+                      name="shipping_postal_code"
+                      value={data.shipping_postal_code}
                       className="mt-1 block w-full"
                       placeholder="Enter your postal code..."
                       onChange={(e) => {
@@ -272,12 +287,12 @@ export default function Index({ addresses, countries }) {
                         }
                         setData((data) => ({
                           ...data,
-                          postal_code: e.target.value,
+                          shipping_postal_code: e.target.value,
                         }));
                       }}
                     />
                     <InputError
-                      message={errors.postal_code}
+                      message={errors.shipping_postal_code}
                       className="-mb-4"
                     />
                   </div>
@@ -285,12 +300,13 @@ export default function Index({ addresses, countries }) {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="state" value="State" />
+                    <Label htmlFor="shipping_state" value="State" />
                     <TextInput
                       required
-                      id="state"
+                      id="shipping_state"
+                      name="shipping_state"
                       className="mt-1 block w-full"
-                      value={data.state}
+                      value={data.shipping_state}
                       placeholder="Enter your state..."
                       onChange={(e) => {
                         if (data.address_id !== "New Address") {
@@ -301,20 +317,27 @@ export default function Index({ addresses, countries }) {
                         }
                         setData((data) => ({
                           ...data,
-                          state: e.target.value,
+                          shipping_state: e.target.value,
                         }));
                       }}
                     />
-                    <InputError message={errors.state} className="-mb-4" />
+                    <InputError
+                      message={errors.shipping_state}
+                      className="-mb-4"
+                    />
                   </div>
                   <div>
-                    <Label htmlFor="country" value="Country" />
+                    <Label htmlFor="shipping_country" value="Country" />
                     <Select
                       required
-                      id="country"
-                      name="country"
+                      id="shipping_country"
+                      name="shipping_country"
                       className="mt-1 block w-full"
-                      value={data.country ? data.country : "Select country"}
+                      value={
+                        data.shipping_country
+                          ? data.shipping_country
+                          : "Select country"
+                      }
                       onChange={(e) => {
                         if (data.address_id !== "New Address") {
                           setData((data) => ({
@@ -324,7 +347,7 @@ export default function Index({ addresses, countries }) {
                         }
                         setData((data) => ({
                           ...data,
-                          country: e.target.value,
+                          shipping_country: e.target.value,
                         }));
                       }}
                     >
@@ -335,7 +358,10 @@ export default function Index({ addresses, countries }) {
                         </option>
                       ))}
                     </Select>
-                    <InputError message={errors.country} className="-mb-4" />
+                    <InputError
+                      message={errors.shipping_country}
+                      className="-mb-4"
+                    />
                   </div>
                 </div>
 
