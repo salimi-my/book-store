@@ -102,6 +102,24 @@ class OrderController extends Controller
             ]);
         }
 
+        // Check if there any default address
+        $default_address_exist = $request->user()->addresses()->where('default', '=', 'yes')->first();
+
+        // Check if new address
+        $address_input = $request->input('address_index');
+        if ($address_input == 'New Address') {
+            $request->user()->addresses()->create([
+                'name' => $request->input('shipping_name'),
+                'phone' => $request->input('shipping_phone'),
+                'address' => $request->input('shipping_address'),
+                'city' => $request->input('shipping_city'),
+                'postal_code' => $request->input('shipping_postal_code'),
+                'state' => $request->input('shipping_state'),
+                'country' => $request->input('shipping_country'),
+                'default' => $default_address_exist ? 'no' : 'yes'
+            ]);
+        }
+
         // Set bill data
         $bill_data = [
             'userSecretKey' => env('TOYYIBPAY_SECRET'),

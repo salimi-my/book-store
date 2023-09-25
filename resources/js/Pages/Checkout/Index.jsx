@@ -10,7 +10,7 @@ export default function Index({ addresses, countries }) {
   const { auth, carts } = usePage().props;
 
   const { data, setData, post, processing, errors } = useForm({
-    address_id: addresses[0].default === "yes" ? "0" : "New Address",
+    address_index: addresses[0].default === "yes" ? "0" : "New Address",
     shipping_name: addresses[0].default === "yes" ? addresses[0].name : "",
     shipping_phone: addresses[0].default === "yes" ? addresses[0].phone : "",
     shipping_address:
@@ -25,7 +25,7 @@ export default function Index({ addresses, countries }) {
 
   const handleAddressChange = (e) => {
     if (e.target.value === "New Address") {
-      setData((data) => ({ ...data, address_id: e.target.value }));
+      setData((data) => ({ ...data, address_index: e.target.value }));
       setData((data) => ({ ...data, shipping_name: "" }));
       setData((data) => ({ ...data, shipping_phone: "" }));
       setData((data) => ({ ...data, shipping_address: "" }));
@@ -36,7 +36,7 @@ export default function Index({ addresses, countries }) {
     } else {
       setData((data) => ({
         ...data,
-        address_id: e.target.value,
+        address_index: e.target.value,
       }));
       setData((data) => ({
         ...data,
@@ -135,10 +135,12 @@ export default function Index({ addresses, countries }) {
                 <div>
                   <Select
                     required
-                    name="address_id"
+                    name="address_index"
                     className="mt-1 block w-full"
                     onChange={(e) => handleAddressChange(e)}
-                    value={data.address_id ? data.address_id : "New Address"}
+                    value={
+                      data.address_index ? data.address_index : "New Address"
+                    }
                   >
                     <option value="New Address">New Address</option>
                     {addresses.map((item, index) => (
@@ -155,7 +157,10 @@ export default function Index({ addresses, countries }) {
                       </option>
                     ))}
                   </Select>
-                  <InputError message={errors.address_id} className="-mb-4" />
+                  <InputError
+                    message={errors.address_index}
+                    className="-mb-4"
+                  />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
@@ -167,10 +172,10 @@ export default function Index({ addresses, countries }) {
                       className="mt-1 block w-full"
                       value={data.shipping_name}
                       onChange={(e) => {
-                        if (data.address_id !== "New Address") {
+                        if (data.address_index !== "New Address") {
                           setData((data) => ({
                             ...data,
-                            address_id: "New Address",
+                            address_index: "New Address",
                           }));
                         }
                         setData((data) => ({
@@ -195,10 +200,10 @@ export default function Index({ addresses, countries }) {
                       className="mt-1 block w-full"
                       placeholder="Enter your phone number..."
                       onChange={(e) => {
-                        if (data.address_id !== "New Address") {
+                        if (data.address_index !== "New Address") {
                           setData((data) => ({
                             ...data,
-                            address_id: "New Address",
+                            address_index: "New Address",
                           }));
                         }
                         setData((data) => ({
@@ -224,10 +229,10 @@ export default function Index({ addresses, countries }) {
                     className="mt-1 block w-full"
                     placeholder="Enter your address..."
                     onChange={(e) => {
-                      if (data.address_id !== "New Address") {
+                      if (data.address_index !== "New Address") {
                         setData((data) => ({
                           ...data,
-                          address_id: "New Address",
+                          address_index: "New Address",
                         }));
                       }
                       setData((data) => ({
@@ -252,10 +257,10 @@ export default function Index({ addresses, countries }) {
                       value={data.shipping_city}
                       placeholder="Enter your city..."
                       onChange={(e) => {
-                        if (data.address_id !== "New Address") {
+                        if (data.address_index !== "New Address") {
                           setData((data) => ({
                             ...data,
-                            address_id: "New Address",
+                            address_index: "New Address",
                           }));
                         }
                         setData((data) => ({
@@ -279,10 +284,10 @@ export default function Index({ addresses, countries }) {
                       className="mt-1 block w-full"
                       placeholder="Enter your postal code..."
                       onChange={(e) => {
-                        if (data.address_id !== "New Address") {
+                        if (data.address_index !== "New Address") {
                           setData((data) => ({
                             ...data,
-                            address_id: "New Address",
+                            address_index: "New Address",
                           }));
                         }
                         setData((data) => ({
@@ -309,10 +314,10 @@ export default function Index({ addresses, countries }) {
                       value={data.shipping_state}
                       placeholder="Enter your state..."
                       onChange={(e) => {
-                        if (data.address_id !== "New Address") {
+                        if (data.address_index !== "New Address") {
                           setData((data) => ({
                             ...data,
-                            address_id: "New Address",
+                            address_index: "New Address",
                           }));
                         }
                         setData((data) => ({
@@ -339,10 +344,10 @@ export default function Index({ addresses, countries }) {
                           : "Select country"
                       }
                       onChange={(e) => {
-                        if (data.address_id !== "New Address") {
+                        if (data.address_index !== "New Address") {
                           setData((data) => ({
                             ...data,
-                            address_id: "New Address",
+                            address_index: "New Address",
                           }));
                         }
                         setData((data) => ({
