@@ -5,7 +5,7 @@ import AddressDefault from "@/Pages/Address/Partials/AddressDefault";
 export default function Address({ address, countries, first }) {
   return (
     <div className="flex flex-col">
-      {!first && <hr className="my-6" />}
+      {!first && <hr className="my-6 border-gray-300 dark:border-gray-600" />}
       <div className="flex flex-col md:flex-row justify-between space-y-2 md:space-y-0">
         <div className="flex space-x-1 md:order-2">
           <AddressDefault address={address} />
@@ -13,7 +13,7 @@ export default function Address({ address, countries, first }) {
           <AddressDelete address={address} />
         </div>
         <div className="flex items-center">
-          <p className="pr-2 border-r-2 font-semibold dark:text-white">
+          <p className="pr-2 border-r border-gray-300 dark:border-gray-600 font-semibold dark:text-white">
             {address.name}
           </p>
           <p className="pl-2 text-gray-500 dark:text-gray-400">
