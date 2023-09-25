@@ -29,11 +29,22 @@ export default function Index({ orders }) {
                 </p>
               </header>
             </div>
-            <div className="flex flex-col mt-10">
-              {orders.map((order, index) => (
-                <Order key={order.id} order={order} first={index === 0} />
-              ))}
-            </div>
+
+            {orders.length > 0 && (
+              <div className="flex flex-col mt-10">
+                {orders.map((order, index) => (
+                  <Order key={order.id} order={order} first={index === 0} />
+                ))}
+              </div>
+            )}
+
+            {orders.length < 1 && (
+              <div className="flex flex-col mt-10">
+                <p className="text-gray-900 dark:text-white font-medium">
+                  There are no orders currently.
+                </p>
+              </div>
+            )}
           </section>
         </Card>
       </ProfileLayout>
