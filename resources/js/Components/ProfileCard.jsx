@@ -41,7 +41,7 @@ export default function ProfileCard() {
             Addresses
           </Link>
           <Link
-            href="#"
+            href={route("order.index")}
             className={`${
               pathname === "/order"
                 ? "bg-cyan-700 text-white dark:text-white"

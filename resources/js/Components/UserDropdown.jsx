@@ -37,9 +37,11 @@ export default function UserDropdown({ user }) {
           My Profile
         </Dropdown.Item>
       </Link>
-      <Dropdown.Item as="span" icon={ClipboardList}>
-        My Orders
-      </Dropdown.Item>
+      <Link href={route("order.index")}>
+        <Dropdown.Item as="span" icon={ClipboardList}>
+          My Orders
+        </Dropdown.Item>
+      </Link>
       <Link href={route("profile.edit")}>
         <Dropdown.Item as="span" icon={MapPin}>
           My Addresses
