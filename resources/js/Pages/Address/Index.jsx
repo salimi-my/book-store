@@ -50,16 +50,27 @@ export default function Index({ addresses, countries }) {
               </header>
               <AddressForm countries={countries} />
             </div>
-            <div className="flex flex-col mt-10">
-              {addresses.map((address, index) => (
-                <Address
-                  key={address.id}
-                  address={address}
-                  countries={countries}
-                  first={index === 0}
-                />
-              ))}
-            </div>
+
+            {addresses.length > 0 && (
+              <div className="flex flex-col mt-10">
+                {addresses.map((address, index) => (
+                  <Address
+                    key={address.id}
+                    address={address}
+                    countries={countries}
+                    first={index === 0}
+                  />
+                ))}
+              </div>
+            )}
+
+            {addresses.length < 1 && (
+              <div className="flex flex-col mt-10">
+                <p className="text-gray-900 dark:text-white font-medium">
+                  There are no addresses currently.
+                </p>
+              </div>
+            )}
           </section>
         </Card>
       </ProfileLayout>
