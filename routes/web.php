@@ -5,6 +5,8 @@ use App\Http\Controllers\AddressDefaultController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +30,9 @@ Route::resource('book', BookController::class)->only(['index', 'show']);
 
 Route::resource('cart', CartController::class)->only(['index', 'store', 'update', 'destroy']);
 
+Route::get('/payment-return', [PaymentController::class, 'index'])->name('payment.index');
+Route::post('/payment-callback', [PaymentController::class, 'update'])->name('payment.update');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -38,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::name('address.default')->put('address/{address}/default', AddressDefaultController::class);
 
     Route::resource('checkout', CheckoutController::class)->only(['index']);
+
+    Route::resource('order', OrderController::class)->only(['store']);
 });
 
 require __DIR__ . '/auth.php';

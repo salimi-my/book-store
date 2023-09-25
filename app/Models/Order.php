@@ -25,7 +25,7 @@ class Order extends Model
         'total',
         'paid_at',
         'shipped_at',
-        'delivered_at',
+        'delivered_at'
     ];
 
     public function owner(): BelongsTo
@@ -36,5 +36,10 @@ class Order extends Model
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class, 'order_id');
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class, 'order_id');
     }
 }
