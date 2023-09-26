@@ -25,7 +25,7 @@ export default function Index({ params, order }) {
               </p>
               <p>Thank you!</p>
               <Button
-                onClick={() => router.get(route("book.index"))}
+                onClick={() => router.get(route("order.show", order.order_no))}
                 className="mt-3"
               >
                 Go to Order
