@@ -187,9 +187,54 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        // Get user info
+        $user = $request->user();
+
+        // Set bill data
+        $bill_data = [
+            'userSecretKey' => env('TOYYIBPAY_SECRET'),
+            'categoryCode' => 'wwuvyug4',
+            'billName' => 'Book Order',
+            'billDescription' => 'Book Order No. ' . $order->order_no,
+            'billPriceSetting' => 1,
+            'billPayorInfo' => 1,
+            'billAmount' => round($order->total, 2) * 100,
+            'billReturnUrl' => env('APP_URL') . '/payment-return',
+            'billCallbackUrl' => env('APP_URL') . '/payment-callback',
+            'billExternalReferenceNo' => $order->id,
+            'billTo' => $user->name,
+            'billEmail' => $user->email,
+            'billPhone' => $user->phone,
+            'billSplitPayment' => 0,
+            'billSplitPaymentArgs' => '',
+            'billPaymentChannel' => 0,
+            'billContentEmail' => 'Thank you for purchasing our product!',
+            'billChargeToCustomer' => 0,
+            'billExpiryDate' => '',
+            'billExpiryDays' => ''
+        ];
+
+        // Create toyyibPay bill
+        $response = Http::asForm()->post('https://dev.toyyibpay.com/index.php/api/createBill', $bill_data);
+
+        // Get bill code, Create payment & redirect to toyyibPay payment
+        if ($response->ok() && is_array($response->object())) {
+            // Get bill code
+            $bill_code = $response->object()[0]->BillCode;
+
+            // Create payment
+            $order->payments()->create([
+                'billcode' => $bill_code,
+                'amount' => $order->total
+            ]);
+
+            // Redirect to toyyibPay payment
+            return Inertia::location('https://dev.toyyibpay.com/' . $bill_code);
+        } else {
+            return abort(404);
+        }
     }
 
     /**

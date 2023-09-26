@@ -19,7 +19,7 @@ class PaymentController extends Controller
 
         return inertia('Payment/Index', [
             'params' => $params,
-            'order' => !empty($params['order_id']) ? Order::where('id', '=', $params['order_id']) : null
+            'order' => !empty($params['order_id']) ? Order::where('id', '=', $params['order_id'])->first() : null
         ]);
     }
 

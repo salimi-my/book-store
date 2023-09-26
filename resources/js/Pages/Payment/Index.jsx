@@ -3,7 +3,6 @@ import { Button } from "flowbite-react";
 import { CheckCircle, XCircle } from "lucide-react";
 
 export default function Index({ params, order }) {
-  console.log(params);
   return (
     <>
       <Head>
@@ -45,7 +44,7 @@ export default function Index({ params, order }) {
               </p>
               <p>Please try again!</p>
               <Button
-                onClick={() => router.get(route("book.index"))}
+                onClick={() => router.get(route("order.show", order.order_no))}
                 className="mt-3"
               >
                 Go to Order

@@ -1,11 +1,14 @@
-import { Card } from "flowbite-react";
 import { ChevronLeft } from "lucide-react";
-import { Head, Link } from "@inertiajs/react";
+import { Button, Card } from "flowbite-react";
+import { Head, Link, router } from "@inertiajs/react";
 
 import MainLayout from "@/Layouts/MainLayout";
 import ProfileLayout from "@/Layouts/ProfileLayout";
+import { useState } from "react";
 
 export default function Show({ order, order_items }) {
+  const [isDisable, setIsDisable] = useState(false);
+
   const subTotal = order.subtotal.toLocaleString("en-MY", {
     style: "currency",
     currency: "MYR",
@@ -23,6 +26,11 @@ export default function Show({ order, order_items }) {
     currency: "MYR",
     maximumFractionDigits: 2,
   });
+
+  const handlePayment = () => {
+    setIsDisable(true);
+    router.put(route("order.update", order.order_no));
+  };
 
   return (
     <MainLayout>
@@ -138,6 +146,19 @@ export default function Show({ order, order_items }) {
               </div>
             </div>
           </section>
+
+          {!order.paid_at && (
+            <div className="flex justify-center items-center mt-4">
+              <Button
+                onClick={handlePayment}
+                disabled={isDisable}
+                type="submit"
+                size="sm"
+              >
+                Pay Now
+              </Button>
+            </div>
+          )}
         </Card>
       </ProfileLayout>
     </MainLayout>
