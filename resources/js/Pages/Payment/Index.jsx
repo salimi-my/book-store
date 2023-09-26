@@ -37,7 +37,7 @@ export default function Index({ params, order }) {
             <div className="flex h-full flex-col justify-center items-center p-3 lg:p-6">
               <div className="flex items-center space-x-2">
                 <XCircle className="text-red-500" />
-                <h1 className="font-bold text-xl">Payment Faild</h1>
+                <h1 className="font-bold text-xl">Payment Failed</h1>
               </div>
               <p className="pt-2">
                 Your payment has been failed to be accepted.
