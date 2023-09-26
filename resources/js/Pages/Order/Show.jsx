@@ -73,7 +73,9 @@ export default function Show({ order, order_items }) {
               </header>
             </div>
 
-            <h3 className="pt-4 pb-1 font-medium text-lg">Shipping Address</h3>
+            <h3 className="pt-4 pb-1 font-medium text-lg text-gray-900 dark:text-white">
+              Shipping Address
+            </h3>
             <p className="text-gray-500 dark:text-gray-400 font-medium text-base">
               {order.shipping_name} |{" "}
               <span className="text-sm">{order.shipping_phone}</span>
@@ -89,7 +91,9 @@ export default function Show({ order, order_items }) {
               {order.shipping_country}
             </p>
 
-            <h3 className="pt-4 pb-4 font-medium text-lg">Order Summary</h3>
+            <h3 className="pt-4 pb-4 font-medium text-lg text-gray-900 dark:text-white">
+              Order Summary
+            </h3>
             <div className="flex flex-col space-y-3 text-gray-900 dark:text-white">
               {order_items.map((order_item) => (
                 <div
