@@ -217,7 +217,7 @@ class OrderController extends Controller
         ];
 
         // Create toyyibPay bill
-        $response = Http::asForm()->post('https://dev.toyyibpay.com/index.php/api/createBill', $bill_data);
+        $response = Http::asForm()->post(env('TOYYIBPAY_URL') . '/index.php/api/createBill', $bill_data);
 
         // Get bill code, Create payment & redirect to toyyibPay payment
         if ($response->ok() && is_array($response->object())) {
@@ -231,7 +231,7 @@ class OrderController extends Controller
             ]);
 
             // Redirect to toyyibPay payment
-            return Inertia::location('https://dev.toyyibpay.com/' . $bill_code);
+            return Inertia::location(env('TOYYIBPAY_URL') . '/' . $bill_code);
         } else {
             return abort(404);
         }
