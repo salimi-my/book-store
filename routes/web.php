@@ -5,6 +5,7 @@ use App\Http\Controllers\AddressDefaultController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
@@ -22,9 +23,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Landing', []);
-});
+Route::get('/', [IndexController::class, 'index']);
 
 Route::resource('book', BookController::class)->only(['index', 'show']);
 
