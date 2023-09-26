@@ -26,7 +26,7 @@ export default function ProfileBreadcrumb() {
           >
             {`${pathname === "/profile" ? "Profile" : ""}`}
             {`${pathname === "/address" ? "Addresses" : ""}`}
-            {`${pathname === "/order" ? "Orders" : ""}`}
+            {`${pathname.includes("/order") ? "Orders" : ""}`}
           </span>
         </li>
       </ol>

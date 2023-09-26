@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('checkout', CheckoutController::class)->only(['index']);
 
-    Route::resource('order', OrderController::class)->only(['index', 'store']);
+    Route::resource('order', OrderController::class)->only(['index', 'store', 'show']);
 });
 
 require __DIR__ . '/auth.php';

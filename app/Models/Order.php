@@ -42,4 +42,9 @@ class Order extends Model
     {
         return $this->hasMany(Payment::class, 'order_id');
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'order_no';
+    }
 }

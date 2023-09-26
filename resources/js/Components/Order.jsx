@@ -22,7 +22,7 @@ export default function Order({ order, first }) {
         <div className="flex space-x-1 md:order-2">
           <Tooltip content="Order Detail">
             <Button
-              onClick={() => {}}
+              onClick={() => router.get(route("order.show", order.order_no))}
               className="px-0 py-1"
               color="light"
               size="xs"
@@ -32,7 +32,10 @@ export default function Order({ order, first }) {
           </Tooltip>
         </div>
         <div className="flex items-center">
-          <Link className="pr-2 border-r border-gray-300 dark:border-gray-600 font-semibold dark:text-white hover:underline underline-offset-2">
+          <Link
+            href={route("order.show", order.order_no)}
+            className="pr-2 border-r border-gray-300 dark:border-gray-600 font-semibold dark:text-white hover:underline underline-offset-2"
+          >
             Order ID: {order.order_no}
           </Link>
           <p className="pl-2 text-gray-500 dark:text-gray-400 font-medium text-xs">
