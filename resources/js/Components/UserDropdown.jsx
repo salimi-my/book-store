@@ -42,7 +42,7 @@ export default function UserDropdown({ user }) {
           My Orders
         </Dropdown.Item>
       </Link>
-      <Link href={route("profile.edit")}>
+      <Link href={route("address.index")}>
         <Dropdown.Item as="span" icon={MapPin}>
           My Addresses
         </Dropdown.Item>
