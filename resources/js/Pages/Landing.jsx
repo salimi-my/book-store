@@ -117,7 +117,7 @@ export default function Landing({ randomBooks }) {
         </div>
       </section>
 
-      <section className="max-w-6xl grid lg:grid-cols-2 gap-4 mx-4 xl:mx-auto">
+      <section className="max-w-6xl grid md:grid-cols-2 md:gap-4 mx-4 xl:mx-auto">
         <img src="/book-stack.png" className="w-full object-cover p-10" />
         <div className="flex flex-col self-center p-8 items-center lg:items-start">
           <h3 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
