@@ -30,6 +30,10 @@ npm install
 #Run database migration & seeding
 php artisan migrate
 php artisan db:seed
+
+#Start the app
+npm run dev
+php artisan serve
 ```
 
 ## Demo
