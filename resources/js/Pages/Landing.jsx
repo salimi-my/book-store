@@ -3,6 +3,7 @@ import { Head, Link } from "@inertiajs/react";
 import MainLayout from "@/Layouts/MainLayout";
 import LandingBanner from "@/Components/LandingBanner";
 import RandomBooks from "@/Components/RandomBooks";
+import CategorySwiper from "@/Components/CategorySwiper";
 
 export default function Landing({ randomBooks }) {
   return (
@@ -17,29 +18,7 @@ export default function Landing({ randomBooks }) {
       <div className="container max-w-6xl mx-auto my-10 mt-0 px-4 xl:px-0">
         <LandingBanner />
 
-        <div className="flex justify-center pt-4">
-          <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-20 items-center max-w-[800px]">
-            <img src="/book-cloud.png" className="h-44 md:ml-auto" />
-            <div className="flex flex-col max-w-[450px] text-center md:text-left text-gray-900 dark:text-white">
-              <h2 className="font-semibold text-2xl">
-                Find & Buy Books From Our Collection
-              </h2>
-              <p className="mt-2 text-sm md:text-base">
-                Search your favourite books here using our large collections of
-                books list.
-              </p>
-              <div className="pt-4">
-                <Link
-                  href={route("book.index")}
-                  as="button"
-                  className="text-white mt-2 bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                >
-                  Find Book
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CategorySwiper />
 
         <section className="max-w-6xl grid lg:grid-cols-2 gap-4 mx-0 xl:mx-auto mt-10">
           <div>
@@ -88,7 +67,8 @@ export default function Landing({ randomBooks }) {
               </div>
             </div>
           </div>
-          <div className="w-full relative">
+
+          <div className="w-full relative mt-8 lg:mt-0">
             <h3 className="text-gray-800 text-2xl font-semibold mb-4 dark:text-white">
               Get your book from us
             </h3>

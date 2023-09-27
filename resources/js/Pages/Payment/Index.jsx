@@ -1,5 +1,5 @@
-import { Head, router } from "@inertiajs/react";
 import { Button } from "flowbite-react";
+import { Head, router } from "@inertiajs/react";
 import { CheckCircle, XCircle } from "lucide-react";
 
 export default function Index({ params, order }) {

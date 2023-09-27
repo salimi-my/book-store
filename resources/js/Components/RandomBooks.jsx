@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -9,14 +11,18 @@ import BookCard from "@/Components/BookCard";
 
 export default function RandomBooks({ books }) {
   return (
-    <>
-      <div className="flex items-center justify-center w-full">
-        <h2 className="font-medium text-2xl text-gray-900 dark:text-white">
-          Featured Books
-        </h2>
+    <div className="px-4 xl:px-0">
+      <div className="flex justify-between items-center">
+        <h2 className="font-medium text-2xl">Featured Books</h2>
+        <Link
+          href={route("book.index")}
+          className="underline hover:opacity-80 text-gray-900 dark:text-white font-medium text-xl"
+        >
+          View all
+        </Link>
       </div>
 
-      <div className="w-full mt-4">
+      <div className="w-full mt-6">
         <Swiper
           spaceBetween={5}
           slidesPerView={2}
@@ -57,6 +63,6 @@ export default function RandomBooks({ books }) {
           )}
         </Swiper>
       </div>
-    </>
+    </div>
   );
 }
