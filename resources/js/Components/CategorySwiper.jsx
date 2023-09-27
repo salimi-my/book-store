@@ -12,7 +12,9 @@ export default function CategorySwiper() {
   return (
     <div className="flex flex-col mt-10">
       <div className="flex justify-between items-center">
-        <h2 className="font-medium text-2xl">Collections</h2>
+        <h2 className="font-medium text-2xl text-gray-900 dark:text-white">
+          Collections
+        </h2>
         <Link
           href={route("book.index")}
           className="underline hover:opacity-80 text-gray-900 dark:text-white font-medium text-xl"
@@ -57,7 +59,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Fiction</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Fiction
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -66,7 +70,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Non-Fiction</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Non-Fiction
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -75,7 +81,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Fantasy</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Fantasy
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -84,7 +92,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Romance</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Romance
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -93,7 +103,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Literature</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Literature
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -102,7 +114,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Economics</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Economics
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -111,7 +125,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Crime</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Crime
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -120,7 +136,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Inspirational</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Inspirational
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -129,7 +147,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Horror</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Horror
+              </p>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
@@ -138,7 +158,9 @@ export default function CategorySwiper() {
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
               <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2">Sports</p>
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+                Sports
+              </p>
             </Link>
           </SwiperSlide>
         </Swiper>

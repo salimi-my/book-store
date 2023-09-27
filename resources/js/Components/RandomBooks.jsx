@@ -13,7 +13,9 @@ export default function RandomBooks({ books }) {
   return (
     <div className="px-4 xl:px-0">
       <div className="flex justify-between items-center">
-        <h2 className="font-medium text-2xl">Featured Books</h2>
+        <h2 className="font-medium text-2xl text-gray-900 dark:text-white">
+          Featured Books
+        </h2>
         <Link
           href={route("book.index")}
           className="underline hover:opacity-80 text-gray-900 dark:text-white font-medium text-xl"
