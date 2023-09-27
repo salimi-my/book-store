@@ -15,14 +15,14 @@
         <meta property="og:url" content="{{ env('APP_URL') }}">
         <meta property="og:title" content="Book Store — Online Book E-commerce">
         <meta property="og:description" content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts.">
-        <meta property="og:image" content="{{ env('APP_URL') }}/social-preview.jpg">
+        <meta property="og:image" content="{{ env('APP_URL') }}/social-preview.png">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="{{ env('APP_URL') }}">
         <meta property="twitter:title" content="Book Store — Online Book E-commerce">
         <meta property="twitter:description" content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts.">
-        <meta property="twitter:image" content="{{ env('APP_URL') }}/social-preview.jpg">
+        <meta property="twitter:image" content="{{ env('APP_URL') }}/social-preview.png">
 
         <!-- Scripts -->
         @routes
