@@ -123,7 +123,7 @@ class OrderController extends Controller
         // Set bill data
         $bill_data = [
             'userSecretKey' => env('TOYYIBPAY_SECRET'),
-            'categoryCode' => 'wwuvyug4',
+            'categoryCode' => env('TOYYIBPAY_CATEGORY'),
             'billName' => 'Book Order',
             'billDescription' => 'Book Order No. ' . $order_no,
             'billPriceSetting' => 1,
@@ -195,7 +195,7 @@ class OrderController extends Controller
         // Set bill data
         $bill_data = [
             'userSecretKey' => env('TOYYIBPAY_SECRET'),
-            'categoryCode' => 'wwuvyug4',
+            'categoryCode' => env('TOYYIBPAY_CATEGORY'),
             'billName' => 'Book Order',
             'billDescription' => 'Book Order No. ' . $order->order_no,
             'billPriceSetting' => 1,
