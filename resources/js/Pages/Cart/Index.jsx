@@ -7,7 +7,7 @@ import CartTable from "@/Pages/Cart/Partials/CartTable";
 import IndexBreadcrumb from "@/Pages/Cart/Breadcrumb/IndexBreadcrumb";
 
 export default function Index() {
-  const { domain, carts } = usePage().props;
+  const { carts } = usePage().props;
 
   const totalPrice = carts
     .map((cart) => cart.book_owner.price * cart.quantity)
@@ -25,27 +25,6 @@ export default function Index() {
         <meta
           name="description"
           content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={domain} />
-        <meta property="og:title" content="Cart — Book Store" />
-        <meta
-          property="og:description"
-          content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-        <meta property="og:image" content={`${domain}/social-preview.png`} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={domain} />
-        <meta property="twitter:title" content="Cart — Book Store" />
-        <meta
-          property="twitter:description"
-          content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-        <meta
-          property="twitter:image"
-          content={`${domain}/social-preview.png`}
         />
       </Head>
 

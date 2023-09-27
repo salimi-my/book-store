@@ -1,4 +1,4 @@
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 import MainLayout from "@/Layouts/MainLayout";
 import RandomBooks from "@/Components/RandomBooks";
@@ -6,8 +6,6 @@ import LandingBanner from "@/Components/LandingBanner";
 import CategorySwiper from "@/Components/CategorySwiper";
 
 export default function Landing({ randomBooks }) {
-  const { domain } = usePage().props;
-
   return (
     <MainLayout>
       <Head>
@@ -16,33 +14,6 @@ export default function Landing({ randomBooks }) {
         <meta
           name="description"
           content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={domain} />
-        <meta
-          property="og:title"
-          content="Book Store — Online Book E-commerce"
-        />
-        <meta
-          property="og:description"
-          content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-        <meta property="og:image" content={`${domain}/social-preview.png`} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={domain} />
-        <meta
-          property="twitter:title"
-          content="Book Store — Online Book E-commerce"
-        />
-        <meta
-          property="twitter:description"
-          content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-        <meta
-          property="twitter:image"
-          content={`${domain}/social-preview.png`}
         />
       </Head>
 

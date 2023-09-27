@@ -10,6 +10,20 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ env('APP_URL') }}">
+        <meta property="og:title" content="Book Store — Online Book E-commerce">
+        <meta property="og:description" content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts.">
+        <meta property="og:image" content="{{ env('APP_URL') }}/social-preview.jpg">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="{{ env('APP_URL') }}">
+        <meta property="twitter:title" content="Book Store — Online Book E-commerce">
+        <meta property="twitter:description" content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts.">
+        <meta property="twitter:image" content="{{ env('APP_URL') }}/social-preview.jpg">
+
         <!-- Scripts -->
         @routes
         @viteReactRefresh

@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Head } from "@inertiajs/react";
 import { Accordion } from "flowbite-react";
-import { Head, usePage } from "@inertiajs/react";
 
 import MainLayout from "@/Layouts/MainLayout";
 import ShareLink from "@/Components/ShareLink";
@@ -11,8 +11,6 @@ import BookDescription from "@/Components/BookDescription";
 import ShowBreadcrumb from "@/Pages/Book/Breadcrumb/ShowBreadcrumb";
 
 export default function Show({ book, relatedBooks }) {
-  const { domain } = usePage().props;
-
   const [quantity, setQuantity] = useState(1);
 
   const handleAdd = () => {
@@ -54,38 +52,6 @@ export default function Show({ book, relatedBooks }) {
               ? book.description.replace(/\\n/g, "").substring(0, 150) + "..."
               : book.description.replace(/\\n/g, "")
           }`}
-        />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={domain} />
-        <meta property="og:title" content={`${book.title} — Book Store`} />
-        <meta
-          property="og:description"
-          content={`${
-            book.description.replace(/\\n/g, "").length > 150
-              ? book.description.replace(/\\n/g, "").substring(0, 150) + "..."
-              : book.description.replace(/\\n/g, "")
-          }`}
-        />
-        <meta
-          property="og:image"
-          content={`${domain}/book-images/${book.image}`}
-        />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={domain} />
-        <meta property="twitter:title" content={`${book.title} — Book Store`} />
-        <meta
-          property="twitter:description"
-          content={`${
-            book.description.replace(/\\n/g, "").length > 150
-              ? book.description.replace(/\\n/g, "").substring(0, 150) + "..."
-              : book.description.replace(/\\n/g, "")
-          }`}
-        />
-        <meta
-          property="twitter:image"
-          content={`${domain}/book-images/${book.image}`}
         />
       </Head>
 

@@ -1,5 +1,5 @@
 import { debounce } from "lodash";
-import { Head, router, usePage } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import BookCard from "@/Components/BookCard";
@@ -23,8 +23,6 @@ export default function Index({
   publishers,
   books,
 }) {
-  const { domain } = usePage().props;
-
   const isInitialMount = useRef(true);
   const [bookFilter, setBookFilter] = useState(filters);
 
@@ -96,27 +94,6 @@ export default function Index({
         <meta
           name="description"
           content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={domain} />
-        <meta property="og:title" content="Books Listing — Book Store" />
-        <meta
-          property="og:description"
-          content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-        <meta property="og:image" content={`${domain}/social-preview.png`} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={domain} />
-        <meta property="twitter:title" content="Books Listing — Book Store" />
-        <meta
-          property="twitter:description"
-          content="Buy books online from the No. 1 Online Bookstore in Malaysia! Enjoy fast & free shipping with min. spend, book deals & exclusive discounts."
-        />
-        <meta
-          property="twitter:image"
-          content={`${domain}/social-preview.png`}
         />
       </Head>
 
