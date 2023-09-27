@@ -1,4 +1,5 @@
 import PaymentOption from "@/Components/PaymentOption";
+import { Link } from "@inertiajs/react";
 import {
   Facebook,
   Github,
@@ -17,7 +18,7 @@ export default function Footer() {
         <div className="md:flex md:justify-between">
           <div className="grid gap-12 lg:grid-cols-6 lg:gap-8 xl:gap-24">
             <div className="col-span-2">
-              <a href="#" className="flex mb-5">
+              <Link href="/" className="flex mb-5">
                 <img
                   src="/book-store.png"
                   className="h-8 mr-3"
@@ -26,7 +27,7 @@ export default function Footer() {
                 <span className="self-center text-xl font-bold whitespace-nowrap text-cyan-700 dark:text-white">
                   Book Store
                 </span>
-              </a>
+              </Link>
               <p className="max-w-lg mb-3 text-gray-600 dark:text-gray-400">
                 Embark on literary journeys with our online bookstore. Discover
                 diverse titles and authors across genres. Your next adventure
@@ -39,28 +40,28 @@ export default function Footer() {
               </h3>
               <ul>
                 <li className="mb-4">
-                  <a
-                    href="#"
+                  <Link
+                    href={route("book.index")}
                     className="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline"
                   >
                     All Books
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a
-                    href="#"
+                  <Link
+                    href={route("book.index")}
                     className="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline"
                   >
                     Buy Books
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-4">
-                  <a
-                    href="#"
+                  <Link
+                    href={route("book.index")}
                     className="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline"
                   >
                     Search Books
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
