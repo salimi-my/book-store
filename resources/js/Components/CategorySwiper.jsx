@@ -58,8 +58,8 @@ export default function CategorySwiper() {
               href={route("book.index", { type: "fiction" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Fiction
               </p>
             </Link>
@@ -69,8 +69,8 @@ export default function CategorySwiper() {
               href={route("book.index", { type: "non-fiction" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Non-Fiction
               </p>
             </Link>
@@ -80,8 +80,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Fantasy" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Fantasy
               </p>
             </Link>
@@ -91,8 +91,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Romance" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Romance
               </p>
             </Link>
@@ -102,8 +102,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Literature" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Literature
               </p>
             </Link>
@@ -113,8 +113,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Economics" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Economics
               </p>
             </Link>
@@ -124,8 +124,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Crime & Thriller" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Crime
               </p>
             </Link>
@@ -135,8 +135,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Inspirational" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Inspirational
               </p>
             </Link>
@@ -146,8 +146,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Horror & Paranormal" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Horror
               </p>
             </Link>
@@ -157,8 +157,8 @@ export default function CategorySwiper() {
               href={route("book.index", { category: "Sports & Hobbies" })}
               className="flex flex-col items-center hover:scale-105 ease-in-out duration-300"
             >
-              <Book className="w-20 h-20 text-cyan-700" />
-              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white">
+              <Book className="w-20 h-20 text-cyan-700 pt-4" />
+              <p className="font-medium text-lg pt-2 text-gray-900 dark:text-white pb-6">
                 Sports
               </p>
             </Link>
